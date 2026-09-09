@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Husband ❤️</title>
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #fff4f2;
+            background: #15070d;
+        }
+
+
+        /* ==============================
+           ROMANTIC BACKGROUND
+        ============================== */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #4b1b2b 0%,
+                    #35121e 35%,
+                    #1c080f 70%,
+                    #080204 100%
+                );
+        }
+
+        .background::before {
+            content: "";
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            left: 50%;
+            top: 40%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background: rgba(210, 75, 110, 0.10);
+
+            filter: blur(110px);
+        }
+
+
+        /* ==============================
+           STARS
+        ============================== */
+
+        .stars {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                radial-gradient(
+                    rgba(255, 220, 225, 0.7) 1px,
+                    transparent 1px
+                );
+
+            background-size: 110px 110px;
+
+            opacity: 0.15;
+        }
+
+
+        /* ==============================
+           FLOATING HEARTS
+        ============================== */
+
+        .hearts {
+            position: absolute;
+            inset: 0;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -30px;
+
+            color: rgba(245, 130, 160, 0.55);
+
+            opacity: 0;
+
+            animation:
+                floatHeart
+                linear
+                infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 4%;
+            font-size: 13px;
+            animation-duration: 13s;
+        }
+
+        .heart:nth-child(2) {
+            left: 11%;
+            font-size: 10px;
+            animation-duration: 17s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 18%;
+            font-size: 18px;
+            animation-duration: 15s;
+            animation-delay: 5s;
+        }
+
+        .heart:nth-child(4) {
+            left: 26%;
+            font-size: 11px;
+            animation-duration: 19s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(5) {
+            left: 34%;
+            font-size: 15px;
+            animation-duration: 14s;
+            animation-delay: 7s;
+        }
+
+        .heart:nth-child(6) {
+            left: 42%;
+            font-size: 10px;
+            animation-duration: 18s;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(7) {
+            left: 50%;
+            font-size: 17px;
+            animation-duration: 16s;
+            animation-delay: 8s;
+        }
+
+        .heart:nth-child(8) {
+            left: 58%;
+            font-size: 12px;
+            animation-duration: 20s;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(9) {
+            left: 66%;
+            font-size: 18px;
+            animation-duration: 14s;
+            animation-delay: 6s;
+        }
+
+        .heart:nth-child(10) {
+            left: 74%;
+            font-size: 11px;
+            animation-duration: 17s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(11) {
+            left: 82%;
+            font-size: 19px;
+            animation-duration: 15s;
+            animation-delay: 9s;
+        }
+
+        .heart:nth-child(12) {
+            left: 90%;
+            font-size: 12px;
+            animation-duration: 18s;
+            animation-delay: 5s;
+        }
+
+        .heart:nth-child(13) {
+            left: 15%;
+            font-size: 13px;
+            animation-duration: 21s;
+            animation-delay: 10s;
+        }
+
+        .heart:nth-child(14) {
+            left: 55%;
+            font-size: 12px;
+            animation-duration: 19s;
+            animation-delay: 11s;
+        }
+
+        .heart:nth-child(15) {
+            left: 94%;
+            font-size: 16px;
+            animation-duration: 16s;
+            animation-delay: 7s;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                opacity: 0;
+                transform:
+                    translate(0, 0)
+                    rotate(0deg)
+                    scale(.7);
+            }
+
+            10% {
+                opacity: .55;
+            }
+
+            30% {
+                transform:
+                    translate(45px, -25vh)
+                    rotate(15deg)
+                    scale(1);
+            }
+
+            55% {
+                transform:
+                    translate(-35px, -52vh)
+                    rotate(-15deg)
+                    scale(.9);
+            }
+
+            75% {
+                transform:
+                    translate(50px, -78vh)
+                    rotate(20deg)
+                    scale(1.05);
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translate(-25px, -110vh)
+                    rotate(-20deg)
+                    scale(.7);
+            }
+        }
+
+
+        /* ==============================
+           MUSIC
+        ============================== */
+
+        .music-button {
+            position: fixed;
+
+            top: 18px;
+            right: 18px;
+
+            width: 43px;
+            height: 43px;
+
+            z-index: 100;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255, 220, 225, .35);
+
+            background: rgba(25, 6, 13, .65);
+
+            color: #fff2f2;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(12px);
+        }
+
+
+        /* ==============================
+           PAGES
+        ============================== */
+
+        .page {
+            position: fixed;
+            inset: 0;
+
+            z-index: 10;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(20px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .page.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* ==============================
+           CONTENT
+        ============================== */
+
+        .content {
+            width: 100%;
+            max-width: 850px;
+            text-align: center;
+        }
+
+
+        /* ==============================
+           SMALL LABEL
+        ============================== */
+
+        .label {
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            font-weight: 400;
+
+            color: rgba(255, 225, 225, .72);
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ==============================
+           TITLE
+        ============================== */
+
+        .title {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(38px, 6vw, 58px);
+
+            line-height: 1.15;
+
+            font-weight: 400;
+
+            color: #fff5f2;
+        }
+
+
+        /* ==============================
+           SUBTITLE
+        ============================== */
+
+        .subtitle {
+            margin-top: 18px;
+
+            font-size: 19px;
+
+            line-height: 1.55;
+
+            font-weight: 300;
+
+            color: rgba(255, 239, 236, .84);
+        }
+
+
+        /* ==============================
+           LINE
+        ============================== */
+
+        .small-line {
+            width: 60px;
+            height: 1px;
+
+            margin: 22px auto 0;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(239, 155, 175, .8),
+                    transparent
+                );
+        }
+
+
+        /* ==============================
+           BUTTON
+        ============================== */
+
+        .next-button {
+            margin-top: 30px;
+
+            padding: 13px 28px;
+
+            border-radius: 30px;
+
+            border:
+                1px solid
+                rgba(255, 215, 220, .38);
+
+            background:
+                rgba(255, 255, 255, .045);
+
+            color: rgba(255, 245, 243, .95);
+
+            font-size: 11px;
+
+            letter-spacing: 2.4px;
+
+            font-weight: 400;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .next-button:hover {
+            transform: translateY(-3px);
+
+            background:
+                rgba(220, 100, 130, .14);
+
+            border-color:
+                rgba(255, 215, 220, .7);
+        }
+
+
+        /* ==============================
+           SMALL HEART
+        ============================== */
+
+        .small-heart {
+            margin-top: 20px;
+
+            font-size: 22px;
+
+            color: #e993ab;
+
+            animation:
+                heartbeat
+                1.8s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+
+        /* ==============================
+           LOVE PAGE
+        ============================== */
+
+        .love-page {
+            padding: 30px 20px;
+        }
+
+        .love-card {
+            width: 100%;
+            max-width: 680px;
+            text-align: center;
+        }
+
+        .love-title {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(30px, 5vw, 44px);
+
+            line-height: 1.2;
+
+            font-weight: 400;
+
+            color: #fff5f2;
+        }
+
+        .love-text {
+            margin-top: 24px;
+
+            font-size: 19px;
+
+            line-height: 1.65;
+
+            font-weight: 300;
+
+            color:
+                rgba(255, 239, 236, .88);
+        }
+
+        .love-text p {
+            margin-bottom: 15px;
+        }
+
+
+        /* ==============================
+           QUESTION PAGE
+        ============================== */
+
+        .question-page {
+            text-align: center;
+        }
+
+        .question-page .content {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .question {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(28px, 5vw, 43px);
+
+            line-height: 1.3;
+
+            font-weight: 400;
+
+            color: #fff5f2;
+
+            max-width: 780px;
+
+            margin: 0 auto;
+        }
+
+        .question-subtitle {
+            margin-top: 18px;
+
+            font-size: 18px;
+
+            font-weight: 300;
+
+            color:
+                rgba(255, 235, 233, .78);
+        }
+
+
+        /* ==============================
+           ANSWERS
+        ============================== */
+
+        .answer-area {
+            position: relative;
+
+            width: 100%;
+
+            height: 150px;
+
+            margin-top: 20px;
+        }
+
+        .yes-button,
+        .no-button {
+            position: absolute;
+
+            padding: 13px 30px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .yes-button {
+            left: 50%;
+            top: 35px;
+
+            transform: translateX(-115%);
+
+            border:
+                1px solid
+                rgba(244, 160, 180, .65);
+
+            background:
+                rgba(190, 65, 100, .18);
+
+            color: #fff5f4;
+        }
+
+        .yes-button:hover {
+            background:
+                rgba(210, 80, 115, .3);
+
+            transform:
+                translateX(-115%)
+                scale(1.05);
+        }
+
+        .no-button {
+            left: 50%;
+            top: 35px;
+
+            transform: translateX(15%);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, .22);
+
+            background:
+                rgba(255, 255, 255, .035);
+
+            color:
+                rgba(255, 235, 235, .7);
+        }
+
+
+        /* ==============================
+           YES RESULT
+        ============================== */
+
+        .yes-result {
+            display: none;
+
+            width: 100%;
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .yes-result.show {
+            display: block;
+
+            animation:
+                resultAppear
+                .9s
+                ease;
+        }
+
+        @keyframes resultAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* THIS MAKES THE RESULT CENTER */
+
+        .question-page .content.result-active {
+            min-height: 80vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .question-page .content.result-active .yes-result {
+            width: 100%;
+        }
+
+
+        /* ==============================
+           RESULT TEXT
+        ============================== */
+
+        .result-title {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(32px, 5vw, 46px);
+
+            line-height: 1.2;
+
+            font-weight: 400;
+
+            color: #fff5f2;
+        }
+
+        .result-text {
+            margin:
+                24px auto 0;
+
+            max-width: 650px;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            font-weight: 300;
+
+            color:
+                rgba(255, 239, 236, .9);
+        }
+
+
+        /* ==============================
+           FINAL PAGE
+        ============================== */
+
+        .final-title {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(36px, 6vw, 54px);
+
+            line-height: 1.15;
+
+            font-weight: 400;
+
+            color: #fff5f2;
+        }
+
+        .final-text {
+            max-width: 650px;
+
+            margin: 25px auto 0;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            font-weight: 300;
+
+            color:
+                rgba(255, 237, 234, .84);
+        }
+
+        .final-birthday {
+            margin-top: 27px;
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
+
+            color: #eca0b5;
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 20px;
+            }
+
+            .label {
+                font-size: 10px;
+                letter-spacing: 2.5px;
+            }
+
+            .title {
+                font-size: 39px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .love-text {
+                font-size: 17px;
+                line-height: 1.6;
+            }
+
+            .question {
+                font-size: 29px;
+            }
+
+            .question-subtitle {
+                font-size: 16px;
+            }
+
+            .result-title {
+                font-size: 35px;
+            }
+
+            .result-text {
+                font-size: 17px;
+            }
+
+            .final-title {
+                font-size: 38px;
+            }
+
+            .final-text {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     BACKGROUND
+========================================== -->
+
+<div class="background">
+
+    <div class="stars"></div>
+
+    <div class="hearts">
+
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+        <span class="heart">♡</span>
+        <span class="heart">♥</span>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SONG
+========================================== -->
+
+<audio
+        id="music"
+        src="birthday-song.mp3"
+        loop>
+</audio>
+
+
+<button
+        class="music-button"
+        id="musicButton">
+    ♫
+</button>
+
+
+<!-- ==========================================
+     PAGE 1
+========================================== -->
+
+<section
+        class="page active"
+        id="page1">
+
+    <div class="content">
+
+        <div class="label">
+            just for you
+        </div>
+
+        <h1 class="title">
+            My Love
+        </h1>
+
+        <p class="subtitle">
+            I made a little something for you...
+        </p>
+
+        <div class="small-line"></div>
+
+        <button class="next-button">
+            open it
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PAGE 2
+========================================== -->
+
+<section
+        class="page"
+        id="page2">
+
+    <div class="content">
+
+        <div class="label">
+            today is special
+        </div>
+
+        <h1 class="title">
+            Happy Birthday,
+            My Husband
+        </h1>
+
+        <div class="small-heart">
+            ♥
+        </div>
+
+        <p class="subtitle">
+            There are a few things I want you to know...
+        </p>
+
+        <div class="small-line"></div>
+
+        <button class="next-button">
+            keep reading
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PAGE 3 — LOVE MESSAGE
+========================================== -->
+
+<section
+        class="page love-page"
+        id="page3">
+
+    <div class="love-card">
+
+        <div class="label">
+            from my heart
+        </div>
+
+        <h2 class="love-title">
+            You are my favorite person.
+        </h2>
+
+        <div class="small-line"></div>
+
+        <div class="love-text">
+
+            <p>
+                I don't need a special reason to love you.
+                I just do in the little moments,
+                the ordinary days, and all the memories
+                we create together.
+            </p>
+
+            <p>
+                You are the person I want beside me
+                when life is beautiful, and the person
+                I want beside me when life gets difficult.
+            </p>
+
+            <p>
+                Being your wife is one of the most
+                beautiful parts of my life. ❤️
+            </p>
+
+        </div>
+
+        <button class="next-button">
+            there's something else
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PAGE 4 — QUESTION
+========================================== -->
+
+<section
+        class="page question-page"
+        id="page4">
+
+    <div class="content">
+
+        <div class="label" id="questionLabel">
+            one little question
+        </div>
+
+        <h2
+                class="question"
+                id="questionText">
+
+            If you had to choose again,
+            would you still choose me?
+
+        </h2>
+
+        <p
+                class="question-subtitle"
+                id="questionSubtitle">
+
+            Be honest... ❤️
+
+        </p>
+
+
+        <!-- YES / NO -->
+
+        <div
+                class="answer-area"
+                id="answerArea">
+
+            <button
+                    class="yes-button"
+                    id="yesButton">
+
+                YES ❤️
+
+            </button>
+
+
+            <button
+                    class="no-button"
+                    id="noButton">
+
+                NO
+
+            </button>
+
+        </div>
+
+
+        <!-- YES RESULT -->
+
+        <div
+                class="yes-result"
+                id="yesResult">
+
+            <h2 class="result-title">
+                I knew it. ❤️
+            </h2>
+
+            <p class="result-text">
+
+                And I would choose you too.
+                Again and again, in every lifetime,
+                in every version of our story.
+
+                You are my home, my favorite person,
+                and the love I never want to lose.
+
+            </p>
+
+            <button
+                    class="next-button"
+                    id="finalButton">
+
+                one last thing
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PAGE 5 — FINAL
+========================================== -->
+
+<section
+        class="page"
+        id="page5">
+
+    <div class="content">
+
+        <div class="label">
+            always remember
+        </div>
+
+        <h1 class="final-title">
+
+            I love you,
+            my husband.
+
+        </h1>
+
+        <div class="small-line"></div>
+
+        <p class="final-text">
+
+            On your birthday, I don't just wish you
+            happiness for today.
+
+            I wish for us to have many more birthdays,
+            many more memories, many more silly moments,
+            and a lifetime of choosing each other.
+
+            Thank you for being you,
+            and thank you for being mine.
+
+        </p>
+
+        <p class="final-birthday">
+
+            Happy Birthday, my love. ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    /* ==========================================
+       PAGE SYSTEM
+    ========================================== */
+
+    const pages =
+        document.querySelectorAll(".page");
+
+    const normalButtons =
+        document.querySelectorAll(".next-button");
+
+    let currentPage = 0;
+
+
+    /* ==========================================
+       MUSIC
+    ========================================== */
+
+    const music =
+        document.getElementById("music");
+
+    const musicButton =
+        document.getElementById("musicButton");
+
+
+    function startMusic() {
+
+        music.play().catch(function() {
+
+            // Browser may block autoplay
+            // until the user clicks.
+
+        });
+
+    }
+
+
+    musicButton.addEventListener(
+        "click",
+        function() {
+
+            if (music.paused) {
+
+                music.play();
+
+                musicButton.textContent = "♫";
+
+            } else {
+
+                music.pause();
+
+                musicButton.textContent = "♪";
+
+            }
+
+        }
+    );
+
+
+    /* ==========================================
+       SHOW PAGE
+    ========================================== */
+
+    function showPage(number) {
+
+        pages.forEach(
+            function(page, index) {
+
+                if (index === number) {
+
+                    page.classList.add("active");
+
+                } else {
+
+                    page.classList.remove("active");
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ==========================================
+       NORMAL BUTTONS
+    ========================================== */
+
+    normalButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    startMusic();
+
+                    /*
+                       Don't allow the YES result button
+                       to use this system.
+                    */
+
+                    if (
+                        button.id === "finalButton"
+                    ) {
+                        return;
+                    }
+
+
+                    if (
+                        currentPage <
+                        pages.length - 1
+                    ) {
+
+                        currentPage++;
+
+                        showPage(currentPage);
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* ==========================================
+       YES / NO
+    ========================================== */
+
+    const noButton =
+        document.getElementById("noButton");
+
+    const yesButton =
+        document.getElementById("yesButton");
+
+    const answerArea =
+        document.getElementById("answerArea");
+
+    const yesResult =
+        document.getElementById("yesResult");
+
+    const questionLabel =
+        document.getElementById("questionLabel");
+
+    const questionText =
+        document.getElementById("questionText");
+
+    const questionSubtitle =
+        document.getElementById("questionSubtitle");
+
+    const questionContent =
+        document.querySelector(
+            ".question-page .content"
+        );
+
+
+    /* ==========================================
+       RUNNING NO BUTTON
+    ========================================== */
+
+    function moveNoButton() {
+
+        const areaWidth =
+            answerArea.clientWidth;
+
+        const areaHeight =
+            answerArea.clientHeight;
+
+        const buttonWidth =
+            noButton.offsetWidth;
+
+        const buttonHeight =
+            noButton.offsetHeight;
+
+
+        const maxX =
+            Math.max(
+                0,
+                areaWidth - buttonWidth
+            );
+
+        const maxY =
+            Math.max(
+                0,
+                areaHeight - buttonHeight
+            );
+
+
+        const randomX =
+            Math.random() * maxX;
+
+        const randomY =
+            Math.random() * maxY;
+
+
+        noButton.style.left =
+            randomX + "px";
+
+        noButton.style.top =
+            randomY + "px";
+
+        noButton.style.transform =
+            "none";
+
+    }
+
+
+    /* Desktop */
+
+    noButton.addEventListener(
+        "mouseenter",
+        moveNoButton
+    );
+
+
+    /* Mobile */
+
+    noButton.addEventListener(
+        "touchstart",
+        function(event) {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        },
+        {
+            passive: false
+        }
+    );
+
+
+    /* If somehow clicked */
+
+    noButton.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        }
+    );
+
+
+    /* ==========================================
+       YES BUTTON
+    ========================================== */
+
+    yesButton.addEventListener(
+        "click",
+        function() {
+
+            startMusic();
+
+
+            /*
+               IMPORTANT:
+               Completely hide the question.
+            */
+
+            questionLabel.style.display =
+                "none";
+
+            questionText.style.display =
+                "none";
+
+            questionSubtitle.style.display =
+                "none";
+
+            answerArea.style.display =
+                "none";
+
+
+            /*
+               Make the content a centered
+               flex container.
+            */
+
+            questionContent.classList.add(
+                "result-active"
+            );
+
+
+            /*
+               Show the YES result.
+            */
+
+            yesResult.classList.add(
+                "show"
+            );
+
+        }
+    );
+
+
+    /* ==========================================
+       FINAL BUTTON
+    ========================================== */
+
+    const finalButton =
+        document.getElementById("finalButton");
+
+
+    finalButton.addEventListener(
+        "click",
+        function() {
+
+            currentPage = 4;
+
+            showPage(currentPage);
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
