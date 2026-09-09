@@ -532,3 +532,14 @@ document.addEventListener(
         passive: false
     }
 );
+document.addEventListener("touchstart", function () {}, {
+    passive: true
+});
+
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
+
+document.addEventListener("selectstart", function (e) {
+    e.preventDefault();
+});
