@@ -1276,3 +1276,31 @@ button:focus-visible {
     }
 
 }
+/* Remove blue tap/highlight effect on mobile */
+* {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    outline: none !important;
+}
+
+button,
+a,
+.next-button,
+#yesButton,
+#noButton,
+#musicButton,
+#finalButton {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none !important;
+    box-shadow: none;
+}
+
+button:focus,
+button:active,
+a:focus,
+a:active {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
