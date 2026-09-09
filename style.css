@@ -1,1306 +1,540 @@
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
 }
 
 html,
 body {
     width: 100%;
     height: 100%;
-}
-
-html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    overflow: hidden;
 }
 
 body {
-    overflow: hidden;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    color: #fff4f2;
-
-    background: #15070d;
-
-    /* Stop accidental selection */
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-
-/* =====================================================
-   REMOVE PHONE TOUCH HIGHLIGHT
-===================================================== */
-
-button,
-a,
-input,
-textarea,
-select {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    user-select: none;
-    -webkit-user-select: none;
-    outline: none;
-}
-
-button {
-    -webkit-appearance: none;
-    appearance: none;
-    touch-action: manipulation;
-}
-
-button:focus,
-button:active,
-button:focus-visible {
-    outline: none;
-}
-
-
-/* =====================================================
-   BACKGROUND
-===================================================== */
-
-.background {
-    position: fixed;
-    inset: 0;
-
-    overflow: hidden;
-
-    z-index: 0;
-
-    pointer-events: none;
-
+    font-family: Georgia, "Times New Roman", serif;
     background:
-        radial-gradient(
-            circle at 50% 35%,
-            #4b1b2b 0%,
-            #35121e 35%,
-            #1c080f 70%,
-            #080204 100%
-        );
+        radial-gradient(circle at 50% 35%, #4b172c 0%, #240b17 45%, #10050b 100%);
+    color: #fff5f7;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.background::before {
-    content: "";
+/* =========================
+   MUSIC BUTTON
+========================= */
 
-    position: absolute;
+#musicButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 
-    width: 650px;
-    height: 650px;
+    width: 44px;
+    height: 44px;
 
-    left: 50%;
-    top: 40%;
-
-    transform:
-        translate(-50%, -50%);
-
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 50%;
 
-    background:
-        rgba(
-            210,
-            75,
-            110,
-            .10
-        );
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
 
-    filter: blur(110px);
+    font-size: 18px;
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+    -webkit-tap-highlight-color: transparent !important;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
-
-/* =====================================================
-   STARS
-===================================================== */
-
-.stars {
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-        radial-gradient(
-            rgba(255, 220, 225, .7)
-            1px,
-            transparent 1px
-        );
-
-    background-size:
-        110px 110px;
-
-    opacity: .15;
-
-    animation:
-        starsMove
-        35s
-        linear
-        infinite;
+#musicButton:active {
+    transform: scale(0.92);
+    background: rgba(255, 150, 180, 0.15);
 }
 
-@keyframes starsMove {
-
-    from {
-        transform:
-            translate(0, 0);
-    }
-
-    to {
-        transform:
-            translate(25px, 45px);
-    }
-}
-
-
-/* =====================================================
-   HEARTS
-===================================================== */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .hearts {
-    position: absolute;
+    position: fixed;
     inset: 0;
-
     pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .heart {
     position: absolute;
-
     bottom: -30px;
 
-    color:
-        rgba(
-            245,
-            130,
-            160,
-            .55
-        );
+    color: rgba(255, 150, 180, 0.45);
 
-    opacity: 0;
+    font-size: 14px;
 
-    text-shadow:
-        0 0 12px
-        rgba(
-            240,
-            90,
-            130,
-            .45
-        );
-
-    animation:
-        floatHeart
-        linear
-        infinite;
+    animation: floatHeart linear infinite;
 }
 
-
-/* heart positions */
-
 .heart:nth-child(1) {
-    left: 4%;
-    font-size: 13px;
-    animation-duration: 13s;
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 0s;
 }
 
 .heart:nth-child(2) {
-    left: 11%;
-    font-size: 10px;
-    animation-duration: 17s;
-    animation-delay: 2s;
-}
-
-.heart:nth-child(3) {
-    left: 18%;
-    font-size: 18px;
-    animation-duration: 15s;
-    animation-delay: 5s;
-}
-
-.heart:nth-child(4) {
-    left: 26%;
-    font-size: 11px;
-    animation-duration: 19s;
-    animation-delay: 1s;
-}
-
-.heart:nth-child(5) {
-    left: 34%;
-    font-size: 15px;
-    animation-duration: 14s;
-    animation-delay: 7s;
-}
-
-.heart:nth-child(6) {
-    left: 42%;
-    font-size: 10px;
-    animation-duration: 18s;
+    left: 25%;
+    animation-duration: 13s;
     animation-delay: 3s;
 }
 
-.heart:nth-child(7) {
-    left: 50%;
-    font-size: 17px;
-    animation-duration: 16s;
-    animation-delay: 8s;
+.heart:nth-child(3) {
+    left: 43%;
+    animation-duration: 11s;
+    animation-delay: 1s;
 }
 
-.heart:nth-child(8) {
-    left: 58%;
-    font-size: 12px;
-    animation-duration: 20s;
+.heart:nth-child(4) {
+    left: 60%;
+    animation-duration: 14s;
     animation-delay: 4s;
 }
 
-.heart:nth-child(9) {
-    left: 66%;
-    font-size: 18px;
-    animation-duration: 14s;
-    animation-delay: 6s;
-}
-
-.heart:nth-child(10) {
-    left: 74%;
-    font-size: 11px;
-    animation-duration: 17s;
+.heart:nth-child(5) {
+    left: 78%;
+    animation-duration: 12s;
     animation-delay: 2s;
 }
 
-.heart:nth-child(11) {
-    left: 82%;
-    font-size: 19px;
-    animation-duration: 15s;
-    animation-delay: 9s;
-}
-
-.heart:nth-child(12) {
+.heart:nth-child(6) {
     left: 90%;
-    font-size: 12px;
-    animation-duration: 18s;
+    animation-duration: 15s;
     animation-delay: 5s;
 }
 
-.heart:nth-child(13) {
-    left: 15%;
-    font-size: 13px;
-    animation-duration: 21s;
-    animation-delay: 10s;
-}
-
-.heart:nth-child(14) {
-    left: 55%;
-    font-size: 12px;
-    animation-duration: 19s;
-    animation-delay: 11s;
-}
-
-.heart:nth-child(15) {
-    left: 94%;
-    font-size: 16px;
-    animation-duration: 16s;
-    animation-delay: 7s;
-}
-
-
 @keyframes floatHeart {
-
     0% {
+        transform: translateY(0) scale(0.7);
         opacity: 0;
-
-        transform:
-            translate(0, 0)
-            rotate(0deg)
-            scale(.7);
     }
 
-    10% {
-        opacity: .55;
+    15% {
+        opacity: 0.5;
     }
 
-    30% {
-        transform:
-            translate(45px, -25vh)
-            rotate(15deg)
-            scale(1);
-    }
-
-    55% {
-        transform:
-            translate(-35px, -52vh)
-            rotate(-15deg)
-            scale(.9);
-    }
-
-    75% {
-        transform:
-            translate(50px, -78vh)
-            rotate(20deg)
-            scale(1.05);
+    80% {
+        opacity: 0.4;
     }
 
     100% {
+        transform: translateY(-110vh) scale(1);
         opacity: 0;
-
-        transform:
-            translate(-25px, -110vh)
-            rotate(-20deg)
-            scale(.7);
     }
 }
 
-
-/* =====================================================
-   MUSIC BUTTON
-===================================================== */
-
-.music-button {
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-
-    width: 43px;
-    height: 43px;
-
-    z-index: 100;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(255, 220, 225, .35);
-
-    background:
-        rgba(25, 6, 13, .65);
-
-    color:
-        #fff2f2;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-    backdrop-filter:
-        blur(12px);
-
-    touch-action: manipulation;
-}
-
-
-/* =====================================================
+/* =========================
    PAGES
-===================================================== */
+========================= */
 
 .page {
-    position: fixed;
-
+    position: absolute;
     inset: 0;
 
-    z-index: 10;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    padding: 25px;
+    padding: 30px;
 
     opacity: 0;
     visibility: hidden;
 
-    transform:
-        translateY(20px);
+    transform: translateX(25px);
 
     transition:
-        opacity .7s ease,
-        transform .7s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+
+    z-index: 2;
 }
 
 .page.active {
     opacity: 1;
-
     visibility: visible;
-
-    transform:
-        translateY(0);
+    transform: translateX(0);
 }
-
-
-/* =====================================================
-   CONTENT
-===================================================== */
 
 .content {
-    width: 100%;
-
-    max-width: 850px;
-
+    width: min(90%, 600px);
     text-align: center;
+
+    position: relative;
+    z-index: 3;
 }
 
+/* =========================
+   TEXT
+========================= */
 
-/* =====================================================
-   LABEL
-===================================================== */
+h1 {
+    font-size: clamp(28px, 7vw, 42px);
+    font-weight: normal;
+    line-height: 1.3;
 
-.label {
-    font-size: 13px;
+    margin-bottom: 20px;
 
-    letter-spacing: 3px;
+    color: #fff0f4;
+}
 
-    font-weight: 400;
-
-    color:
-        rgba(
-            255,
-            225,
-            225,
-            .75
-        );
+h2 {
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: normal;
+    line-height: 1.4;
 
     margin-bottom: 18px;
+
+    color: #ffe6ed;
 }
 
+p {
+    font-size: clamp(16px, 4vw, 20px);
+    line-height: 1.8;
 
-/* =====================================================
-   TITLES
-===================================================== */
+    color: rgba(255, 240, 245, 0.88);
 
-.title {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            38px,
-            6vw,
-            58px
-        );
-
-    line-height:
-        1.15;
-
-    font-weight:
-        400;
-
-    color:
-        #fff5f2;
+    margin-bottom: 20px;
 }
 
-
-/* =====================================================
-   SUBTITLE
-===================================================== */
-
-.subtitle {
-    margin-top: 18px;
-
-    font-size: 19px;
-
-    line-height: 1.55;
-
-    font-weight: 300;
-
-    color:
-        rgba(
-            255,
-            239,
-            236,
-            .84
-        );
+.small-text {
+    font-size: 14px;
+    opacity: 0.7;
 }
 
+/* =========================
+   ROMANTIC BUTTONS
+========================= */
 
-/* =====================================================
-   LINE
-===================================================== */
-
-.small-line {
-    width: 60px;
-
-    height: 1px;
-
-    margin:
-        22px auto 0;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(
-                239,
-                155,
-                175,
-                .8
-            ),
-            transparent
-        );
-}
-
-
-/* =====================================================
-   NORMAL BUTTON
-===================================================== */
-
-.next-button {
-    margin-top: 30px;
-
-    padding:
-        13px 28px;
-
-    border-radius:
-        30px;
-
-    border:
-        1px solid
-        rgba(
-            255,
-            215,
-            220,
-            .38
-        );
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .045
-        );
-
-    color:
-        rgba(
-            255,
-            245,
-            243,
-            .95
-        );
-
-    font-size: 11px;
-
-    letter-spacing:
-        2.4px;
-
-    font-weight: 400;
+button {
+    font-family: Georgia, "Times New Roman", serif;
 
     cursor: pointer;
 
+    border: none;
+    outline: none !important;
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    touch-action: manipulation;
+}
+
+/* Main buttons */
+
+.next-button {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 28px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255, 190, 205, 0.35);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #fff;
+
+    font-size: 16px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
+
     transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease;
-
-    backdrop-filter:
-        blur(10px);
-
-    touch-action:
-        manipulation;
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .next-button:hover {
-    transform:
-        translateY(-3px);
+    background: rgba(255, 160, 190, 0.15);
 
-    background:
-        rgba(
-            220,
-            100,
-            130,
-            .14
-        );
+    box-shadow:
+        0 8px 25px rgba(255, 120, 160, 0.15);
 
-    border-color:
-        rgba(
-            255,
-            215,
-            220,
-            .7
-        );
+    transform: translateY(-2px);
 }
-
-
-/* Prevent weird pressed movement on phone */
 
 .next-button:active {
-    transform: scale(.98);
+    transform: scale(0.94);
+
+    background: rgba(255, 150, 180, 0.18);
+
+    box-shadow:
+        0 3px 12px rgba(255, 120, 160, 0.15);
 }
 
-
-/* =====================================================
-   SMALL HEART
-===================================================== */
-
-.small-heart {
-    margin-top: 20px;
-
-    font-size: 23px;
-
-    color:
-        #e993ab;
-
-    animation:
-        heartbeat
-        1.8s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform:
-            scale(1);
-    }
-
-    50% {
-        transform:
-            scale(1.1);
-    }
-}
-
-
-/* =====================================================
-   LOVE PAGE
-===================================================== */
-
-.love-page {
-    padding:
-        30px 20px;
-}
-
-.love-card {
-    width: 100%;
-
-    max-width: 680px;
-
-    text-align: center;
-}
-
-.love-title {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            30px,
-            5vw,
-            44px
-        );
-
-    line-height:
-        1.2;
-
-    font-weight:
-        400;
-
-    color:
-        #fff5f2;
-}
-
-.love-text {
-    margin-top:
-        24px;
-
-    font-size:
-        19px;
-
-    line-height:
-        1.65;
-
-    font-weight:
-        300;
-
-    color:
-        rgba(
-            255,
-            239,
-            236,
-            .88
-        );
-}
-
-.love-text p {
-    margin-bottom:
-        15px;
-}
-
-
-/* =====================================================
-   QUESTION PAGE
-===================================================== */
-
-.question-page {
-    text-align: center;
-}
+/* =========================
+   QUESTION
+========================= */
 
 .question-page .content {
-    width: 100%;
-
-    max-width:
-        850px;
+    transition: all 0.5s ease;
 }
 
-.question {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.question-page .content.result-active {
+    display: flex;
+    flex-direction: column;
 
-    font-size:
-        clamp(
-            28px,
-            5vw,
-            43px
-        );
+    align-items: center;
+    justify-content: center;
 
-    line-height:
-        1.3;
-
-    font-weight:
-        400;
-
-    color:
-        #fff5f2;
-
-    max-width:
-        780px;
-
-    margin:
-        0 auto;
+    min-height: 60vh;
 }
 
-.question-subtitle {
-    margin-top:
-        18px;
+#questionLabel {
+    font-size: 15px;
+    opacity: 0.7;
 
-    font-size:
-        18px;
-
-    font-weight:
-        300;
-
-    color:
-        rgba(
-            255,
-            235,
-            233,
-            .78
-        );
+    margin-bottom: 12px;
 }
 
+#questionText {
+    font-size: clamp(21px, 5.5vw, 30px);
+    font-weight: normal;
 
-/* =====================================================
-   ANSWER AREA
-===================================================== */
+    line-height: 1.5;
 
-.answer-area {
-    position:
-        relative;
-
-    width:
-        100%;
-
-    height:
-        150px;
-
-    margin-top:
-        20px;
+    margin-bottom: 12px;
 }
 
+#questionSubtitle {
+    font-size: 15px;
+    opacity: 0.7;
 
-/* =====================================================
+    margin-bottom: 25px;
+}
+
+/* =========================
    YES / NO
-===================================================== */
+========================= */
 
-.yes-button,
-.no-button {
+#answerArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
 
-    position:
-        absolute;
+    position: relative;
 
-    padding:
-        13px 30px;
-
-    border-radius:
-        30px;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        2px;
-
-    cursor:
-        pointer;
-
-    touch-action:
-        none;
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-    user-select:
-        none;
-
-    -webkit-user-select:
-        none;
+    min-height: 65px;
 }
 
+#yesButton,
+#noButton {
+    min-width: 100px;
 
-.yes-button {
+    padding: 12px 22px;
 
-    left:
-        50%;
+    border-radius: 28px;
 
-    top:
-        35px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
 
-    transform:
-        translateX(-115%);
+    cursor: pointer;
 
-    border:
-        1px solid
-        rgba(
-            244,
-            160,
-            180,
-            .65
-        );
-
-    background:
-        rgba(
-            190,
-            65,
-            100,
-            .18
-        );
-
-    color:
-        #fff5f4;
-
-    touch-action:
-        manipulation;
-}
-
-
-.yes-button:hover {
-
-    background:
-        rgba(
-            210,
-            80,
-            115,
-            .3
-        );
-
-}
-
-
-.yes-button:active {
-
-    transform:
-        translateX(-115%)
-        scale(.97);
-
-}
-
-
-.no-button {
-
-    left:
-        50%;
-
-    top:
-        35px;
-
-    transform:
-        translateX(15%);
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .22
-        );
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .035
-        );
-
-    color:
-        rgba(
-            255,
-            235,
-            235,
-            .7
-        );
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
 
     transition:
-        left .18s ease,
-        top .18s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
+#yesButton {
+    background: rgba(255, 120, 155, 0.18);
 
-/* =====================================================
+    border: 1px solid rgba(255, 180, 200, 0.45);
+
+    color: #fff3f6;
+
+    box-shadow:
+        0 5px 20px rgba(255, 100, 150, 0.12);
+}
+
+#yesButton:hover {
+    background: rgba(255, 130, 165, 0.25);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(255, 100, 150, 0.2);
+}
+
+#yesButton:active {
+    transform: scale(0.92);
+
+    background: rgba(255, 150, 180, 0.28);
+
+    box-shadow:
+        0 3px 12px rgba(255, 100, 150, 0.15);
+}
+
+#noButton {
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: rgba(255, 255, 255, 0.75);
+
+    position: relative;
+}
+
+#noButton:active {
+    transform: scale(0.9);
+}
+
+/* =========================
    YES RESULT
-===================================================== */
+========================= */
 
-.yes-result {
+#yesResult {
+    display: none;
 
-    display:
-        none;
+    width: min(90%, 560px);
 
-    width:
-        100%;
-
-    max-width:
-        700px;
-
-    margin:
-        0 auto;
-
-    text-align:
-        center;
+    animation: resultAppear 0.8s ease forwards;
 }
 
-
-.yes-result.show {
-
-    display:
-        block;
-
-    animation:
-        resultAppear
-        .9s
-        ease;
+#yesResult.show {
+    display: block;
 }
 
+#yesResult h2 {
+    margin-bottom: 18px;
+}
+
+#yesResult p {
+    font-size: clamp(15px, 4vw, 18px);
+    line-height: 1.8;
+}
 
 @keyframes resultAppear {
-
     from {
-
-        opacity:
-            0;
-
-        transform:
-            translateY(20px);
-
+        opacity: 0;
+        transform: scale(0.94) translateY(15px);
     }
 
     to {
-
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-
+        opacity: 1;
+        transform: scale(1) translateY(0);
     }
-
 }
 
+/* =========================
+   FINAL PAGE
+========================= */
 
-/* =====================================================
-   CENTER YES RESULT
-===================================================== */
+.final-message {
+    font-size: clamp(18px, 5vw, 24px);
 
-.question-page
-.content.result-active {
+    line-height: 1.8;
 
-    min-height:
-        80vh;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    color: #ffeaf0;
 }
 
+/* =========================
+   REMOVE ALL BLUE FOCUS
+========================= */
 
-.question-page
-.content.result-active
-.yes-result {
+button:focus,
+button:focus-visible,
+button:active,
+a:focus,
+a:focus-visible,
+a:active,
+input:focus,
+textarea:focus {
+    outline: none !important;
 
-    width:
-        100%;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
+/* Prevent text selection */
 
-/* =====================================================
-   RESULT
-===================================================== */
-
-.result-title {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            32px,
-            5vw,
-            46px
-        );
-
-    line-height:
-        1.2;
-
-    font-weight:
-        400;
-
-    color:
-        #fff5f2;
+button,
+.next-button,
+#yesButton,
+#noButton,
+#musicButton {
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
-
-.result-text {
-
-    margin:
-        24px auto 0;
-
-    max-width:
-        650px;
-
-    font-size:
-        19px;
-
-    line-height:
-        1.7;
-
-    font-weight:
-        300;
-
-    color:
-        rgba(
-            255,
-            239,
-            236,
-            .9
-        );
-}
-
-
-/* =====================================================
-   FINAL
-===================================================== */
-
-.final-title {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            36px,
-            6vw,
-            54px
-        );
-
-    line-height:
-        1.15;
-
-    font-weight:
-        400;
-
-    color:
-        #fff5f2;
-}
-
-
-.final-text {
-
-    max-width:
-        650px;
-
-    margin:
-        25px auto 0;
-
-    font-size:
-        18px;
-
-    line-height:
-        1.7;
-
-    font-weight:
-        300;
-
-    color:
-        rgba(
-            255,
-            237,
-            234,
-            .84
-        );
-}
-
-
-.final-birthday {
-
-    margin-top:
-        27px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        21px;
-
-    color:
-        #eca0b5;
-}
-
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media (max-width: 600px) {
 
     .page {
-        padding:
-            20px;
+        padding: 22px;
     }
 
-
-    .label {
-        font-size:
-            10px;
-
-        letter-spacing:
-            2.5px;
+    .content {
+        width: 92%;
     }
 
-
-    .title {
-        font-size:
-            39px;
+    h1 {
+        font-size: 30px;
     }
 
-
-    .subtitle {
-        font-size:
-            17px;
+    h2 {
+        font-size: 24px;
     }
 
-
-    .love-text {
-        font-size:
-            17px;
-
-        line-height:
-            1.6;
+    p {
+        font-size: 16px;
+        line-height: 1.7;
     }
 
+    #musicButton {
+        top: 15px;
+        right: 15px;
 
-    .question {
-        font-size:
-            29px;
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
     }
 
-
-    .question-subtitle {
-        font-size:
-            16px;
+    .next-button {
+        padding: 11px 25px;
+        font-size: 15px;
     }
 
-
-    .result-title {
-        font-size:
-            35px;
+    #yesButton,
+    #noButton {
+        min-width: 95px;
+        padding: 11px 19px;
+        font-size: 15px;
     }
 
-
-    .result-text {
-        font-size:
-            17px;
+    #answerArea {
+        gap: 14px;
     }
-
-
-    .final-title {
-        font-size:
-            38px;
-    }
-
-
-    .final-text {
-        font-size:
-            16px;
-    }
-
-
-    .music-button {
-        width:
-            40px;
-
-        height:
-            40px;
-
-        top:
-            14px;
-
-        right:
-            14px;
-    }
-
-}
-/* Remove blue tap/highlight effect on mobile */
-* {
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-touch-callout: none;
-    outline: none !important;
-}
-
-button,
-a,
-.next-button,
-#yesButton,
-#noButton,
-#musicButton,
-#finalButton {
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none !important;
-    box-shadow: none;
-}
-
-button:focus,
-button:active,
-a:focus,
-a:active {
-    outline: none !important;
-    -webkit-tap-highlight-color: transparent !important;
 }
