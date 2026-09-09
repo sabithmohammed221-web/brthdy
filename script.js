@@ -543,3 +543,16 @@ document.addEventListener("contextmenu", function (e) {
 document.addEventListener("selectstart", function (e) {
     e.preventDefault();
 });
+/* Small vibration on button tap */
+
+function smallVibration() {
+    if (navigator.vibrate) {
+        navigator.vibrate(25);
+    }
+}
+
+document.querySelectorAll("button, .next-button").forEach(function (button) {
+    button.addEventListener("click", function () {
+        smallVibration();
+    });
+});
