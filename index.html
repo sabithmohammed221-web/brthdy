@@ -3,1496 +3,751 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For My Husband ❤️</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
-    <style>
+    <meta name="theme-color" content="#15070d">
 
-        /* ==============================
-           RESET
-        ============================== */
+    <title>For My Love ❤️</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            overflow: hidden;
-            font-family: "Segoe UI", Arial, sans-serif;
-            color: #fff4f2;
-            background: #15070d;
-        }
-
-
-        /* ==============================
-           ROMANTIC BACKGROUND
-        ============================== */
-
-        .background {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            z-index: 0;
-
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    #4b1b2b 0%,
-                    #35121e 35%,
-                    #1c080f 70%,
-                    #080204 100%
-                );
-        }
-
-        .background::before {
-            content: "";
-            position: absolute;
-
-            width: 650px;
-            height: 650px;
-
-            left: 50%;
-            top: 40%;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            background: rgba(210, 75, 110, 0.10);
-
-            filter: blur(110px);
-        }
-
-
-        /* ==============================
-           STARS
-        ============================== */
-
-        .stars {
-            position: absolute;
-            inset: 0;
-
-            background-image:
-                radial-gradient(
-                    rgba(255, 220, 225, 0.7) 1px,
-                    transparent 1px
-                );
-
-            background-size: 110px 110px;
-
-            opacity: 0.15;
-        }
-
-
-        /* ==============================
-           FLOATING HEARTS
-        ============================== */
-
-        .hearts {
-            position: absolute;
-            inset: 0;
-        }
-
-        .heart {
-            position: absolute;
-            bottom: -30px;
-
-            color: rgba(245, 130, 160, 0.55);
-
-            opacity: 0;
-
-            animation:
-                floatHeart
-                linear
-                infinite;
-        }
-
-        .heart:nth-child(1) {
-            left: 4%;
-            font-size: 13px;
-            animation-duration: 13s;
-        }
-
-        .heart:nth-child(2) {
-            left: 11%;
-            font-size: 10px;
-            animation-duration: 17s;
-            animation-delay: 2s;
-        }
-
-        .heart:nth-child(3) {
-            left: 18%;
-            font-size: 18px;
-            animation-duration: 15s;
-            animation-delay: 5s;
-        }
-
-        .heart:nth-child(4) {
-            left: 26%;
-            font-size: 11px;
-            animation-duration: 19s;
-            animation-delay: 1s;
-        }
-
-        .heart:nth-child(5) {
-            left: 34%;
-            font-size: 15px;
-            animation-duration: 14s;
-            animation-delay: 7s;
-        }
-
-        .heart:nth-child(6) {
-            left: 42%;
-            font-size: 10px;
-            animation-duration: 18s;
-            animation-delay: 3s;
-        }
-
-        .heart:nth-child(7) {
-            left: 50%;
-            font-size: 17px;
-            animation-duration: 16s;
-            animation-delay: 8s;
-        }
-
-        .heart:nth-child(8) {
-            left: 58%;
-            font-size: 12px;
-            animation-duration: 20s;
-            animation-delay: 4s;
-        }
-
-        .heart:nth-child(9) {
-            left: 66%;
-            font-size: 18px;
-            animation-duration: 14s;
-            animation-delay: 6s;
-        }
-
-        .heart:nth-child(10) {
-            left: 74%;
-            font-size: 11px;
-            animation-duration: 17s;
-            animation-delay: 2s;
-        }
-
-        .heart:nth-child(11) {
-            left: 82%;
-            font-size: 19px;
-            animation-duration: 15s;
-            animation-delay: 9s;
-        }
-
-        .heart:nth-child(12) {
-            left: 90%;
-            font-size: 12px;
-            animation-duration: 18s;
-            animation-delay: 5s;
-        }
-
-        .heart:nth-child(13) {
-            left: 15%;
-            font-size: 13px;
-            animation-duration: 21s;
-            animation-delay: 10s;
-        }
-
-        .heart:nth-child(14) {
-            left: 55%;
-            font-size: 12px;
-            animation-duration: 19s;
-            animation-delay: 11s;
-        }
-
-        .heart:nth-child(15) {
-            left: 94%;
-            font-size: 16px;
-            animation-duration: 16s;
-            animation-delay: 7s;
-        }
-
-        @keyframes floatHeart {
-
-            0% {
-                opacity: 0;
-                transform:
-                    translate(0, 0)
-                    rotate(0deg)
-                    scale(.7);
-            }
-
-            10% {
-                opacity: .55;
-            }
-
-            30% {
-                transform:
-                    translate(45px, -25vh)
-                    rotate(15deg)
-                    scale(1);
-            }
-
-            55% {
-                transform:
-                    translate(-35px, -52vh)
-                    rotate(-15deg)
-                    scale(.9);
-            }
-
-            75% {
-                transform:
-                    translate(50px, -78vh)
-                    rotate(20deg)
-                    scale(1.05);
-            }
-
-            100% {
-                opacity: 0;
-                transform:
-                    translate(-25px, -110vh)
-                    rotate(-20deg)
-                    scale(.7);
-            }
-        }
-
-
-        /* ==============================
-           MUSIC
-        ============================== */
-
-        .music-button {
-            position: fixed;
-
-            top: 18px;
-            right: 18px;
-
-            width: 43px;
-            height: 43px;
-
-            z-index: 100;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255, 220, 225, .35);
-
-            background: rgba(25, 6, 13, .65);
-
-            color: #fff2f2;
-
-            font-size: 18px;
-
-            cursor: pointer;
-
-            backdrop-filter: blur(12px);
-        }
-
-
-        /* ==============================
-           PAGES
-        ============================== */
-
-        .page {
-            position: fixed;
-            inset: 0;
-
-            z-index: 10;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 25px;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transform: translateY(20px);
-
-            transition:
-                opacity .7s ease,
-                transform .7s ease;
-        }
-
-        .page.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-
-        /* ==============================
-           CONTENT
-        ============================== */
-
-        .content {
-            width: 100%;
-            max-width: 850px;
-            text-align: center;
-        }
-
-
-        /* ==============================
-           SMALL LABEL
-        ============================== */
-
-        .label {
-            font-size: 13px;
-
-            letter-spacing: 3px;
-
-            font-weight: 400;
-
-            color: rgba(255, 225, 225, .72);
-
-            margin-bottom: 18px;
-        }
-
-
-        /* ==============================
-           TITLE
-        ============================== */
-
-        .title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(38px, 6vw, 58px);
-
-            line-height: 1.15;
-
-            font-weight: 400;
-
-            color: #fff5f2;
-        }
-
-
-        /* ==============================
-           SUBTITLE
-        ============================== */
-
-        .subtitle {
-            margin-top: 18px;
-
-            font-size: 19px;
-
-            line-height: 1.55;
-
-            font-weight: 300;
-
-            color: rgba(255, 239, 236, .84);
-        }
-
-
-        /* ==============================
-           LINE
-        ============================== */
-
-        .small-line {
-            width: 60px;
-            height: 1px;
-
-            margin: 22px auto 0;
-
-            background:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    rgba(239, 155, 175, .8),
-                    transparent
-                );
-        }
-
-
-        /* ==============================
-           BUTTON
-        ============================== */
-
-        .next-button {
-            margin-top: 30px;
-
-            padding: 13px 28px;
-
-            border-radius: 30px;
-
-            border:
-                1px solid
-                rgba(255, 215, 220, .38);
-
-            background:
-                rgba(255, 255, 255, .045);
-
-            color: rgba(255, 245, 243, .95);
-
-            font-size: 11px;
-
-            letter-spacing: 2.4px;
-
-            font-weight: 400;
-
-            cursor: pointer;
-
-            transition: .3s ease;
-
-            backdrop-filter: blur(10px);
-        }
-
-        .next-button:hover {
-            transform: translateY(-3px);
-
-            background:
-                rgba(220, 100, 130, .14);
-
-            border-color:
-                rgba(255, 215, 220, .7);
-        }
-
-
-        /* ==============================
-           SMALL HEART
-        ============================== */
-
-        .small-heart {
-            margin-top: 20px;
-
-            font-size: 22px;
-
-            color: #e993ab;
-
-            animation:
-                heartbeat
-                1.8s
-                ease-in-out
-                infinite;
-        }
-
-        @keyframes heartbeat {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-
-        /* ==============================
-           LOVE PAGE
-        ============================== */
-
-        .love-page {
-            padding: 30px 20px;
-        }
-
-        .love-card {
-            width: 100%;
-            max-width: 680px;
-            text-align: center;
-        }
-
-        .love-title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(30px, 5vw, 44px);
-
-            line-height: 1.2;
-
-            font-weight: 400;
-
-            color: #fff5f2;
-        }
-
-        .love-text {
-            margin-top: 24px;
-
-            font-size: 19px;
-
-            line-height: 1.65;
-
-            font-weight: 300;
-
-            color:
-                rgba(255, 239, 236, .88);
-        }
-
-        .love-text p {
-            margin-bottom: 15px;
-        }
-
-
-        /* ==============================
-           QUESTION PAGE
-        ============================== */
-
-        .question-page {
-            text-align: center;
-        }
-
-        .question-page .content {
-            width: 100%;
-            max-width: 850px;
-        }
-
-        .question {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(28px, 5vw, 43px);
-
-            line-height: 1.3;
-
-            font-weight: 400;
-
-            color: #fff5f2;
-
-            max-width: 780px;
-
-            margin: 0 auto;
-        }
-
-        .question-subtitle {
-            margin-top: 18px;
-
-            font-size: 18px;
-
-            font-weight: 300;
-
-            color:
-                rgba(255, 235, 233, .78);
-        }
-
-
-        /* ==============================
-           ANSWERS
-        ============================== */
-
-        .answer-area {
-            position: relative;
-
-            width: 100%;
-
-            height: 150px;
-
-            margin-top: 20px;
-        }
-
-        .yes-button,
-        .no-button {
-            position: absolute;
-
-            padding: 13px 30px;
-
-            border-radius: 30px;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            cursor: pointer;
-
-            transition: .2s ease;
-        }
-
-        .yes-button {
-            left: 50%;
-            top: 35px;
-
-            transform: translateX(-115%);
-
-            border:
-                1px solid
-                rgba(244, 160, 180, .65);
-
-            background:
-                rgba(190, 65, 100, .18);
-
-            color: #fff5f4;
-        }
-
-        .yes-button:hover {
-            background:
-                rgba(210, 80, 115, .3);
-
-            transform:
-                translateX(-115%)
-                scale(1.05);
-        }
-
-        .no-button {
-            left: 50%;
-            top: 35px;
-
-            transform: translateX(15%);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, .22);
-
-            background:
-                rgba(255, 255, 255, .035);
-
-            color:
-                rgba(255, 235, 235, .7);
-        }
-
-
-        /* ==============================
-           YES RESULT
-        ============================== */
-
-        .yes-result {
-            display: none;
-
-            width: 100%;
-            max-width: 700px;
-
-            margin: 0 auto;
-
-            text-align: center;
-        }
-
-        .yes-result.show {
-            display: block;
-
-            animation:
-                resultAppear
-                .9s
-                ease;
-        }
-
-        @keyframes resultAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* THIS MAKES THE RESULT CENTER */
-
-        .question-page .content.result-active {
-            min-height: 80vh;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-        .question-page .content.result-active .yes-result {
-            width: 100%;
-        }
-
-
-        /* ==============================
-           RESULT TEXT
-        ============================== */
-
-        .result-title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(32px, 5vw, 46px);
-
-            line-height: 1.2;
-
-            font-weight: 400;
-
-            color: #fff5f2;
-        }
-
-        .result-text {
-            margin:
-                24px auto 0;
-
-            max-width: 650px;
-
-            font-size: 19px;
-
-            line-height: 1.7;
-
-            font-weight: 300;
-
-            color:
-                rgba(255, 239, 236, .9);
-        }
-
-
-        /* ==============================
-           FINAL PAGE
-        ============================== */
-
-        .final-title {
-            font-family:
-                Georgia,
-                "Times New Roman",
-                serif;
-
-            font-size:
-                clamp(36px, 6vw, 54px);
-
-            line-height: 1.15;
-
-            font-weight: 400;
-
-            color: #fff5f2;
-        }
-
-        .final-text {
-            max-width: 650px;
-
-            margin: 25px auto 0;
-
-            font-size: 18px;
-
-            line-height: 1.7;
-
-            font-weight: 300;
-
-            color:
-                rgba(255, 237, 234, .84);
-        }
-
-        .final-birthday {
-            margin-top: 27px;
-
-            font-family: Georgia, serif;
-
-            font-size: 21px;
-
-            color: #eca0b5;
-        }
-
-
-        /* ==============================
-           MOBILE
-        ============================== */
-
-        @media (max-width: 600px) {
-
-            .page {
-                padding: 20px;
-            }
-
-            .label {
-                font-size: 10px;
-                letter-spacing: 2.5px;
-            }
-
-            .title {
-                font-size: 39px;
-            }
-
-            .subtitle {
-                font-size: 17px;
-            }
-
-            .love-text {
-                font-size: 17px;
-                line-height: 1.6;
-            }
-
-            .question {
-                font-size: 29px;
-            }
-
-            .question-subtitle {
-                font-size: 16px;
-            }
-
-            .result-title {
-                font-size: 35px;
-            }
-
-            .result-text {
-                font-size: 17px;
-            }
-
-            .final-title {
-                font-size: 38px;
-            }
-
-            .final-text {
-                font-size: 16px;
-            }
-
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- =========================================
+         BACKGROUND
+    ========================================== -->
 
-<!-- ==========================================
-     BACKGROUND
-========================================== -->
+    <div class="background">
 
-<div class="background">
+        <div class="stars"></div>
 
-    <div class="stars"></div>
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
 
-    <div class="hearts">
+        <div class="hearts">
 
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
-        <span class="heart">♡</span>
-        <span class="heart">♥</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+            <span>♡</span>
+            <span>♥</span>
+
+        </div>
 
     </div>
 
-</div>
 
+    <!-- =========================================
+         MUSIC
+    ========================================== -->
 
-<!-- ==========================================
-     SONG
-========================================== -->
-
-<audio
+    <audio
         id="music"
         src="birthday-song.mp3"
-        loop>
-</audio>
+        loop
+        preload="auto">
+    </audio>
 
+    <button
+        id="musicButton"
+        aria-label="Music">
 
-<button
-        class="music-button"
-        id="musicButton">
-    ♫
-</button>
+        ♫
 
+    </button>
 
-<!-- ==========================================
-     PAGE 1
-========================================== -->
 
-<section
-        class="page active"
-        id="page1">
+    <!-- =========================================
+         SLIDES
+    ========================================== -->
 
-    <div class="content">
+    <main id="slides">
 
-        <div class="label">
-            just for you
-        </div>
 
-        <h1 class="title">
-            My Love
-        </h1>
+        <!-- =====================================
+             SLIDE 1
+        ====================================== -->
 
-        <p class="subtitle">
-            I made a little something for you...
-        </p>
+        <section class="page active">
 
-        <div class="small-line"></div>
+            <div class="content">
 
-        <button class="next-button">
-            open it
-        </button>
+                <div class="label">
+                    JUST FOR YOU ❤️
+                </div>
 
-    </div>
+                <h1 class="title">
 
-</section>
+                    My Love,
+                    <br>
+                    this is for you.
 
+                </h1>
 
-<!-- ==========================================
-     PAGE 2
-========================================== -->
+                <p class="subtitle">
 
-<section
-        class="page"
-        id="page2">
+                    I wanted to make something more than
+                    just a birthday wish...
+                    something you can keep,
+                    read again,
+                    and remember.
 
-    <div class="content">
+                </p>
 
-        <div class="label">
-            today is special
-        </div>
+                <div class="divider"></div>
 
-        <h1 class="title">
-            Happy Birthday,
-            My Husband
-        </h1>
+                <button class="next-button">
+                    Open My Heart
+                </button>
 
-        <div class="small-heart">
-            ♥
-        </div>
+            </div>
 
-        <p class="subtitle">
-            There are a few things I want you to know...
-        </p>
+        </section>
 
-        <div class="small-line"></div>
 
-        <button class="next-button">
-            keep reading
-        </button>
 
-    </div>
+        <!-- =====================================
+             SLIDE 2
+        ====================================== -->
 
-</section>
+        <section class="page">
 
+            <div class="content">
 
-<!-- ==========================================
-     PAGE 3 — LOVE MESSAGE
-========================================== -->
+                <div class="label">
+                    TODAY IS YOUR DAY
+                </div>
 
-<section
-        class="page love-page"
-        id="page3">
+                <h2 class="slide-title">
 
-    <div class="love-card">
+                    Happy Birthday,
+                    My Love 🎂❤️
 
-        <div class="label">
-            from my heart
-        </div>
+                </h2>
 
-        <h2 class="love-title">
-            You are my favorite person.
-        </h2>
+                <p class="wish">
 
-        <div class="small-line"></div>
+                    Today is not just another date
+                    on the calendar.
+                    Today is the day the world became
+                    a little more beautiful because
+                    you were born.
 
-        <div class="love-text">
+                </p>
 
-            <p>
-                I don't need a special reason to love you.
-                I just do in the little moments,
-                the ordinary days, and all the memories
-                we create together.
-            </p>
+                <p class="wish">
 
-            <p>
-                You are the person I want beside me
-                when life is beautiful, and the person
-                I want beside me when life gets difficult.
-            </p>
+                    I hope this birthday brings you
+                    the kind of happiness that stays
+                    even after the candles are gone,
+                    the cake is finished,
+                    and the day becomes a memory.
 
-            <p>
-                Being your wife is one of the most
-                beautiful parts of my life. ❤️
-            </p>
+                </p>
 
-        </div>
+                <p class="wish">
 
-        <button class="next-button">
-            there's something else
-        </button>
+                    May your smile stay bright,
+                    your heart stay peaceful,
+                    and may every dream you carry
+                    quietly inside you slowly
+                    become real.
 
-    </div>
+                </p>
 
-</section>
+                <button class="next-button">
+                    There is more ❤️
+                </button>
 
+            </div>
 
-<!-- ==========================================
-     PAGE 4 — QUESTION
-========================================== -->
+        </section>
 
-<section
-        class="page question-page"
-        id="page4">
 
-    <div class="content">
 
-        <div class="label" id="questionLabel">
-            one little question
-        </div>
+        <!-- =====================================
+             SLIDE 3
+        ====================================== -->
 
-        <h2
-                class="question"
-                id="questionText">
+        <section class="page">
 
-            If you had to choose again,
-            would you still choose me?
+            <div class="content">
 
-        </h2>
+                <div class="label">
+                    FROM MY HEART
+                </div>
 
-        <p
-                class="question-subtitle"
-                id="questionSubtitle">
+                <h2 class="slide-title">
 
-            Be honest... ❤️
+                    If I could give you one thing...
 
-        </p>
+                </h2>
 
+                <p class="wish">
 
-        <!-- YES / NO -->
+                    If I could give you one thing
+                    in this life,
+                    I would give you the ability
+                    to see yourself through my eyes.
 
-        <div
-                class="answer-area"
-                id="answerArea">
+                </p>
 
-            <button
-                    class="yes-button"
-                    id="yesButton">
+                <p class="wish">
 
-                YES ❤️
+                    Then you would understand
+                    how special you are to me,
+                    how much your presence means,
+                    and how even the smallest moments
+                    with you can become some of
+                    my biggest memories.
 
-            </button>
+                </p>
 
+                <p class="wish">
 
-            <button
-                    class="no-button"
-                    id="noButton">
+                    You are not important to me
+                    only because of the beautiful
+                    moments.
+                    You matter because you are
+                    the person I want beside me
+                    through the ordinary days too.
 
-                NO
+                </p>
 
-            </button>
+                <button class="next-button">
+                    Keep reading 💕
+                </button>
 
-        </div>
+            </div>
 
+        </section>
 
-        <!-- YES RESULT -->
 
-        <div
-                class="yes-result"
-                id="yesResult">
 
-            <h2 class="result-title">
-                I knew it. ❤️
-            </h2>
+        <!-- =====================================
+             SLIDE 4
+        ====================================== -->
 
-            <p class="result-text">
+        <section class="page">
 
-                And I would choose you too.
-                Again and again, in every lifetime,
-                in every version of our story.
+            <div class="content">
 
-                You are my home, my favorite person,
-                and the love I never want to lose.
+                <div class="label">
+                    OUR MEMORIES
+                </div>
 
-            </p>
+                <h2 class="slide-title">
 
-            <button
-                    class="next-button"
-                    id="finalButton">
+                    I love the little things
+                    about us.
 
-                one last thing
+                </h2>
 
-            </button>
+                <p class="wish">
 
-        </div>
+                    I love the random conversations,
+                    the silly jokes,
+                    the moments when we laugh
+                    for no reason,
+                    and even the quiet moments
+                    when we don't need to say anything.
 
-    </div>
+                </p>
 
-</section>
+                <p class="wish">
 
+                    I love how a normal day can
+                    become special simply because
+                    I spent a part of it with you.
 
-<!-- ==========================================
-     PAGE 5 — FINAL
-========================================== -->
+                </p>
 
-<section
-        class="page"
-        id="page5">
+                <p class="wish">
 
-    <div class="content">
+                    Every memory we make becomes
+                    another little piece of our story.
+                    Some memories may be big
+                    and unforgettable,
+                    while others may seem small,
+                    but I want to keep all of them
+                    close to my heart.
 
-        <div class="label">
-            always remember
-        </div>
+                </p>
 
-        <h1 class="final-title">
+                <button class="next-button">
+                    One more thing ✨
+                </button>
 
-            I love you,
-            my husband.
+            </div>
 
-        </h1>
+        </section>
 
-        <div class="small-line"></div>
 
-        <p class="final-text">
 
-            On your birthday, I don't just wish you
-            happiness for today.
+        <!-- =====================================
+             SLIDE 5
+        ====================================== -->
 
-            I wish for us to have many more birthdays,
-            many more memories, many more silly moments,
-            and a lifetime of choosing each other.
+        <section class="page">
 
-            Thank you for being you,
-            and thank you for being mine.
+            <div class="content">
 
-        </p>
+                <div class="label">
+                    MY PROMISE
+                </div>
 
-        <p class="final-birthday">
+                <h2 class="slide-title">
 
-            Happy Birthday, my love. ❤️
+                    I want to be there.
 
-        </p>
+                </h2>
 
-    </div>
+                <p class="wish">
 
-</section>
+                    I cannot promise that every day
+                    of life will be perfect.
+                    I cannot promise that we will
+                    never have difficult moments.
 
+                    But I can promise that I will
+                    always value what we have.
 
-<script>
+                </p>
 
-    /* ==========================================
-       PAGE SYSTEM
-    ========================================== */
+                <p class="wish">
 
-    const pages =
-        document.querySelectorAll(".page");
+                    I want to celebrate your happiest
+                    days with you,
+                    support you on the difficult ones,
+                    listen when you need someone,
+                    and stand beside you while you
+                    chase the things you dream about.
 
-    const normalButtons =
-        document.querySelectorAll(".next-button");
+                </p>
 
-    let currentPage = 0;
+                <p class="wish">
 
+                    I want us to keep growing,
+                    learning,
+                    laughing,
+                    forgiving,
+                    understanding,
+                    and choosing each other
+                    again and again.
 
-    /* ==========================================
-       MUSIC
-    ========================================== */
+                </p>
 
-    const music =
-        document.getElementById("music");
+                <button class="next-button">
+                    Keep going ❤️
+                </button>
 
-    const musicButton =
-        document.getElementById("musicButton");
+            </div>
 
+        </section>
 
-    function startMusic() {
 
-        music.play().catch(function() {
 
-            // Browser may block autoplay
-            // until the user clicks.
+        <!-- =====================================
+             SLIDE 6
+        ====================================== -->
 
-        });
+        <section class="page">
 
-    }
+            <div class="content">
 
+                <div class="label">
+                    MY BIRTHDAY WISH FOR YOU
+                </div>
 
-    musicButton.addEventListener(
-        "click",
-        function() {
+                <h2 class="slide-title">
 
-            if (music.paused) {
+                    May life be kind to you.
 
-                music.play();
+                </h2>
 
-                musicButton.textContent = "♫";
+                <p class="wish">
 
-            } else {
+                    I wish you good health,
+                    peaceful days,
+                    meaningful success,
+                    beautiful opportunities,
+                    and the courage to follow
+                    your dreams.
 
-                music.pause();
+                </p>
 
-                musicButton.textContent = "♪";
+                <p class="wish">
 
-            }
+                    Whenever life gives you
+                    a difficult road,
+                    I hope you find the strength
+                    to continue.
 
-        }
-    );
+                    Whenever you feel lost,
+                    I hope you find your way back.
 
+                    Whenever you feel tired,
+                    I hope you remember
+                    how loved you are.
 
-    /* ==========================================
-       SHOW PAGE
-    ========================================== */
+                </p>
 
-    function showPage(number) {
+                <p class="wish">
 
-        pages.forEach(
-            function(page, index) {
+                    And whenever something wonderful
+                    happens,
+                    I hope you have someone beside
+                    you to celebrate it with.
 
-                if (index === number) {
+                    I hope I can be that person
+                    for many, many years.
 
-                    page.classList.add("active");
+                </p>
 
-                } else {
+                <button class="next-button">
+                    Almost there 💖
+                </button>
 
-                    page.classList.remove("active");
+            </div>
 
-                }
+        </section>
 
-            }
-        );
 
-    }
 
+        <!-- =====================================
+             SLIDE 7
+        ====================================== -->
 
-    /* ==========================================
-       NORMAL BUTTONS
-    ========================================== */
+        <section class="page">
 
-    normalButtons.forEach(
-        function(button) {
+            <div class="content">
 
-            button.addEventListener(
-                "click",
-                function() {
+                <div class="label">
+                    A LITTLE CONFESSION
+                </div>
 
-                    startMusic();
+                <h2 class="slide-title">
 
-                    /*
-                       Don't allow the YES result button
-                       to use this system.
-                    */
+                    You mean more than words
+                    can explain.
 
-                    if (
-                        button.id === "finalButton"
-                    ) {
-                        return;
-                    }
+                </h2>
 
+                <p class="wish">
 
-                    if (
-                        currentPage <
-                        pages.length - 1
-                    ) {
+                    Sometimes I may not say
+                    everything perfectly.
 
-                        currentPage++;
+                    Sometimes a simple
+                    "I love you"
+                    feels too small for everything
+                    I actually feel.
 
-                        showPage(currentPage);
+                </p>
 
-                    }
+                <p class="wish">
 
-                }
-            );
+                    But please remember this:
 
-        }
-    );
+                    Your presence in my life is
+                    something I never want
+                    to take for granted.
 
+                    You have a place in my heart
+                    that no one else can replace.
 
-    /* ==========================================
-       YES / NO
-    ========================================== */
+                </p>
 
-    const noButton =
-        document.getElementById("noButton");
+                <p class="wish">
 
-    const yesButton =
-        document.getElementById("yesButton");
+                    Thank you for every smile,
+                    every conversation,
+                    every memory,
+                    every little effort,
+                    and every moment that has
+                    made our story ours.
 
-    const answerArea =
-        document.getElementById("answerArea");
+                </p>
 
-    const yesResult =
-        document.getElementById("yesResult");
+                <button class="next-button">
+                    One little question 💗
+                </button>
 
-    const questionLabel =
-        document.getElementById("questionLabel");
+            </div>
 
-    const questionText =
-        document.getElementById("questionText");
+        </section>
 
-    const questionSubtitle =
-        document.getElementById("questionSubtitle");
 
-    const questionContent =
-        document.querySelector(
-            ".question-page .content"
-        );
 
+        <!-- =====================================
+             SLIDE 8
+        ====================================== -->
 
-    /* ==========================================
-       RUNNING NO BUTTON
-    ========================================== */
+        <section class="page question-page">
 
-    function moveNoButton() {
+            <div class="content">
 
-        const areaWidth =
-            answerArea.clientWidth;
+                <div id="questionBox">
 
-        const areaHeight =
-            answerArea.clientHeight;
+                    <div
+                        class="label"
+                        id="questionLabel">
 
-        const buttonWidth =
-            noButton.offsetWidth;
+                        ONE LITTLE QUESTION
 
-        const buttonHeight =
-            noButton.offsetHeight;
+                    </div>
 
+                    <h2
+                        class="question"
+                        id="questionText">
 
-        const maxX =
-            Math.max(
-                0,
-                areaWidth - buttonWidth
-            );
+                        If you had to choose again,
+                        <br>
+                        would you still choose me?
 
-        const maxY =
-            Math.max(
-                0,
-                areaHeight - buttonHeight
-            );
+                    </h2>
 
+                    <p
+                        class="question-subtitle"
+                        id="questionSubtitle">
 
-        const randomX =
-            Math.random() * maxX;
+                        Be honest... ❤️
 
-        const randomY =
-            Math.random() * maxY;
+                    </p>
 
 
-        noButton.style.left =
-            randomX + "px";
+                    <div
+                        class="answer-area"
+                        id="answerArea">
 
-        noButton.style.top =
-            randomY + "px";
+                        <button id="yesButton">
+                            YES ❤️
+                        </button>
 
-        noButton.style.transform =
-            "none";
+                        <button id="noButton">
+                            NO
+                        </button>
 
-    }
+                    </div>
 
+                </div>
 
-    /* Desktop */
 
-    noButton.addEventListener(
-        "mouseenter",
-        moveNoButton
-    );
+                <!-- YES RESULT -->
 
+                <div id="yesResult">
 
-    /* Mobile */
+                    <div class="big-heart">
+                        ♥
+                    </div>
 
-    noButton.addEventListener(
-        "touchstart",
-        function(event) {
+                    <h2 class="result-title">
+                        I knew it. ❤️
+                    </h2>
 
-            event.preventDefault();
+                    <p class="wish">
 
-            moveNoButton();
+                        And I would choose you too.
 
-        },
-        {
-            passive: false
-        }
-    );
+                        Not just once,
+                        but again and again.
 
+                        In every ordinary day,
+                        every difficult moment,
+                        every celebration,
+                        and every new chapter.
 
-    /* If somehow clicked */
+                    </p>
 
-    noButton.addEventListener(
-        "click",
-        function(event) {
+                    <button
+                        class="next-button"
+                        id="finalButton">
 
-            event.preventDefault();
+                        Two last slides ✨
 
-            moveNoButton();
+                    </button>
 
-        }
-    );
+                </div>
 
+            </div>
 
-    /* ==========================================
-       YES BUTTON
-    ========================================== */
+        </section>
 
-    yesButton.addEventListener(
-        "click",
-        function() {
 
-            startMusic();
 
+        <!-- =====================================
+             SLIDE 9
+        ====================================== -->
 
-            /*
-               IMPORTANT:
-               Completely hide the question.
-            */
+        <section class="page">
 
-            questionLabel.style.display =
-                "none";
+            <div class="content">
 
-            questionText.style.display =
-                "none";
+                <div class="label">
+                    FROM YOUR PERSON
+                </div>
 
-            questionSubtitle.style.display =
-                "none";
+                <h2 class="slide-title">
 
-            answerArea.style.display =
-                "none";
+                    Thank you for being you. ❤️
 
+                </h2>
 
-            /*
-               Make the content a centered
-               flex container.
-            */
+                <p class="wish">
 
-            questionContent.classList.add(
-                "result-active"
-            );
+                    Thank you for being the person
+                    you are.
 
+                    Thank you for the happiness
+                    you bring into my life.
 
-            /*
-               Show the YES result.
-            */
+                    Thank you for the memories
+                    we have already created
+                    and for all the memories
+                    that are still waiting for us.
 
-            yesResult.classList.add(
-                "show"
-            );
+                </p>
 
-        }
-    );
+                <p class="wish">
 
+                    When I imagine the future,
+                    I don't just imagine
+                    big celebrations.
 
-    /* ==========================================
-       FINAL BUTTON
-    ========================================== */
+                    I imagine the simple things too —
+                    talking late at night,
+                    laughing about stupid things,
+                    eating together,
+                    going places,
+                    making plans,
+                    changing those plans,
+                    and simply having each other.
 
-    const finalButton =
-        document.getElementById("finalButton");
+                </p>
 
+                <p class="wish">
 
-    finalButton.addEventListener(
-        "click",
-        function() {
+                    That's the kind of future I want:
 
-            currentPage = 4;
+                    A life filled with little moments
+                    that become our favorite memories.
 
-            showPage(currentPage);
+                </p>
 
-        }
-    );
+                <button class="next-button">
+                    My final wish ❤️
+                </button>
 
-</script>
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SLIDE 10
+        ====================================== -->
+
+        <section class="page final-page">
+
+            <div class="content">
+
+                <div class="label">
+                    ALWAYS REMEMBER
+                </div>
+
+                <h1 class="final-title">
+
+                    Happy Birthday,
+                    <br>
+                    My Love. ❤️
+
+                </h1>
+
+                <div class="divider"></div>
+
+                <p class="wish final-wish">
+
+                    On your birthday,
+                    I don't just wish you happiness
+                    for today.
+
+                    I wish you a beautiful life
+                    filled with peace,
+                    love,
+                    success,
+                    laughter,
+                    and countless reasons
+                    to smile.
+
+                </p>
+
+                <p class="wish final-wish">
+
+                    I wish for us to have
+                    many more birthdays together,
+                    many more late-night conversations,
+                    many more adventures,
+                    many more silly moments,
+                    many more photographs,
+                    and thousands of memories
+                    that we haven't made yet.
+
+                </p>
+
+                <p class="wish final-wish">
+
+                    No matter how much time passes,
+                    I hope we always remember
+                    how our story started,
+                    how much we cared,
+                    and how special these little
+                    moments were.
+
+                </p>
+
+                <p class="final-line">
+
+                    I love you more than this
+                    little website could ever explain. ❤️
+
+                </p>
+
+                <p class="birthday-line">
+
+                    Happy Birthday, my love. 🎂❤️
+
+                </p>
+
+                <div class="forever">
+
+                    Forever & always ♡
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
 
 </body>
 
