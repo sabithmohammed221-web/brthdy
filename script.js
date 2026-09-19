@@ -2,10 +2,9 @@
    PAGE SYSTEM
 ===================================================== */
 
-const pages =
-    document.querySelectorAll(".page");
+const pages = document.querySelectorAll(".page");
 
-const buttons =
+const nextButtons =
     document.querySelectorAll(".next-button");
 
 let currentPage = 0;
@@ -34,19 +33,21 @@ function startMusic() {
     if (playPromise !== undefined) {
 
         playPromise
-            .then(function() {
+            .then(function () {
 
                 if (musicButton) {
-                    musicButton.textContent =
-                        "♫";
+                    musicButton.textContent = "♫";
                 }
 
             })
-            .catch(function() {
+            .catch(function () {
 
-                console.log(
-                    "Music waiting for user interaction."
-                );
+                /*
+                   Some browsers block
+                   automatic audio.
+                   It will start after
+                   a user interaction.
+                */
 
             });
 
@@ -59,27 +60,27 @@ function startMusic() {
    MUSIC BUTTON
 ===================================================== */
 
-if (musicButton) {
+if (musicButton && music) {
 
     musicButton.addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
-
             event.stopPropagation();
 
+            smallVibration();
 
             if (music.paused) {
 
                 music.play()
-                    .then(function() {
+                    .then(function () {
 
                         musicButton.textContent =
                             "♫";
 
                     })
-                    .catch(function() {
+                    .catch(function () {
 
                         console.log(
                             "Music could not play."
@@ -108,8 +109,15 @@ if (musicButton) {
 
 function showPage(number) {
 
+    if (
+        number < 0 ||
+        number >= pages.length
+    ) {
+        return;
+    }
+
     pages.forEach(
-        function(page, index) {
+        function (page, index) {
 
             if (index === number) {
 
@@ -128,47 +136,74 @@ function showPage(number) {
         }
     );
 
+    currentPage = number;
+
 }
 
 
 /* =====================================================
-   NORMAL BUTTONS
+   SMALL VIBRATION
 ===================================================== */
 
-buttons.forEach(
-    function(button) {
+function smallVibration() {
+
+    if (
+        navigator.vibrate
+    ) {
+
+        navigator.vibrate(22);
+
+    }
+
+}
+
+
+/* =====================================================
+   NORMAL NEXT BUTTONS
+===================================================== */
+
+nextButtons.forEach(
+    function (button) {
 
         /*
-           Skip the special buttons.
+           These buttons have their
+           own special functions.
         */
 
         if (
+            button.id === "finalButton" ||
             button.id === "yesButton" ||
-            button.id === "noButton" ||
-            button.id === "finalButton"
+            button.id === "noButton"
         ) {
+
             return;
+
         }
 
 
         button.addEventListener(
             "click",
-            function(event) {
+            function (event) {
 
                 event.preventDefault();
+                event.stopPropagation();
+
+                smallVibration();
 
                 startMusic();
 
+
+                /*
+                   Go to next slide.
+                */
 
                 if (
                     currentPage <
                     pages.length - 1
                 ) {
 
-                    currentPage++;
-
                     showPage(
-                        currentPage
+                        currentPage + 1
                     );
 
                 }
@@ -219,9 +254,9 @@ const questionSubtitle =
         "questionSubtitle"
     );
 
-const questionContent =
-    document.querySelector(
-        ".question-page .content"
+const questionBox =
+    document.getElementById(
+        "questionBox"
     );
 
 
@@ -231,8 +266,13 @@ const questionContent =
 
 function moveNoButton() {
 
-    if (!noButton || !answerArea) {
+    if (
+        !noButton ||
+        !answerArea
+    ) {
+
         return;
+
     }
 
 
@@ -251,32 +291,48 @@ function moveNoButton() {
 
 
     /*
-       Keep the button completely
-       inside the answer area.
+       Calculate the maximum
+       safe position.
     */
 
     const maxX =
         Math.max(
             5,
-            areaWidth - buttonWidth - 5
+            areaWidth -
+            buttonWidth -
+            5
         );
+
 
     const maxY =
         Math.max(
             5,
-            areaHeight - buttonHeight - 5
+            areaHeight -
+            buttonHeight -
+            5
         );
 
+
+    /*
+       Random position.
+    */
 
     const randomX =
         5 +
         Math.random() *
-        (maxX - 5);
+        Math.max(
+            1,
+            maxX - 5
+        );
+
 
     const randomY =
         5 +
         Math.random() *
-        (maxY - 5);
+        Math.max(
+            1,
+            maxY - 5
+        );
 
 
     noButton.style.left =
@@ -285,6 +341,12 @@ function moveNoButton() {
     noButton.style.top =
         randomY + "px";
 
+
+    /*
+       Remove the original
+       centered transform.
+    */
+
     noButton.style.transform =
         "none";
 
@@ -292,14 +354,14 @@ function moveNoButton() {
 
 
 /* =====================================================
-   DESKTOP NO BUTTON
+   DESKTOP
 ===================================================== */
 
 if (noButton) {
 
     noButton.addEventListener(
         "mouseenter",
-        function() {
+        function () {
 
             moveNoButton();
 
@@ -308,17 +370,39 @@ if (noButton) {
 
 
     /*
-       Touchscreen:
-       move immediately when touched.
+       Mouse pointer.
+    */
+
+    noButton.addEventListener(
+        "pointerenter",
+        function (event) {
+
+            if (
+                event.pointerType ===
+                "mouse"
+            ) {
+
+                moveNoButton();
+
+            }
+
+        }
+    );
+
+
+    /*
+       Touchscreen.
     */
 
     noButton.addEventListener(
         "touchstart",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
 
             event.stopPropagation();
+
+            smallVibration();
 
             moveNoButton();
 
@@ -335,7 +419,7 @@ if (noButton) {
 
     noButton.addEventListener(
         "pointerdown",
-        function(event) {
+        function (event) {
 
             if (
                 event.pointerType ===
@@ -346,6 +430,8 @@ if (noButton) {
 
             }
 
+            smallVibration();
+
             moveNoButton();
 
         }
@@ -354,12 +440,12 @@ if (noButton) {
 
     /*
        If somehow clicked,
-       immediately move again.
+       move it immediately.
     */
 
     noButton.addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
 
@@ -381,18 +467,19 @@ if (yesButton) {
 
     yesButton.addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
 
             event.stopPropagation();
 
+            smallVibration();
+
             startMusic();
 
 
             /*
-               Completely remove the
-               question from the screen.
+               Hide the question.
             */
 
             if (questionLabel) {
@@ -427,21 +514,16 @@ if (yesButton) {
             }
 
 
-            /*
-               Center the result.
-            */
+            if (questionBox) {
 
-            if (questionContent) {
-
-                questionContent.classList.add(
-                    "result-active"
-                );
+                questionBox.style.display =
+                    "none";
 
             }
 
 
             /*
-               Show result.
+               Show the YES result.
             */
 
             if (yesResult) {
@@ -472,17 +554,38 @@ if (finalButton) {
 
     finalButton.addEventListener(
         "click",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
 
             event.stopPropagation();
 
-            currentPage = 4;
+            smallVibration();
 
-            showPage(
-                currentPage
-            );
+            startMusic();
+
+
+            /*
+               YES result is on slide 8.
+
+               After clicking
+               "Two last slides",
+               go to slide 9.
+
+               Array index:
+               0 = Slide 1
+               1 = Slide 2
+               2 = Slide 3
+               3 = Slide 4
+               4 = Slide 5
+               5 = Slide 6
+               6 = Slide 7
+               7 = Slide 8
+               8 = Slide 9
+               9 = Slide 10
+            */
+
+            showPage(8);
 
         }
     );
@@ -496,7 +599,7 @@ if (finalButton) {
 
 document.addEventListener(
     "contextmenu",
-    function(event) {
+    function (event) {
 
         event.preventDefault();
 
@@ -505,17 +608,33 @@ document.addEventListener(
 
 
 /* =====================================================
-   PREVENT DOUBLE-TAP ZOOM ON BUTTONS
+   PREVENT TEXT SELECTION
+===================================================== */
+
+document.addEventListener(
+    "selectstart",
+    function (event) {
+
+        event.preventDefault();
+
+    }
+);
+
+
+/* =====================================================
+   PREVENT DOUBLE-TAP ZOOM
 ===================================================== */
 
 let lastTouchEnd = 0;
 
+
 document.addEventListener(
     "touchend",
-    function(event) {
+    function (event) {
 
         const now =
             Date.now();
+
 
         if (
             now - lastTouchEnd <= 300
@@ -525,6 +644,7 @@ document.addEventListener(
 
         }
 
+
         lastTouchEnd = now;
 
     },
@@ -532,27 +652,59 @@ document.addEventListener(
         passive: false
     }
 );
-document.addEventListener("touchstart", function () {}, {
-    passive: true
-});
 
-document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-});
 
-document.addEventListener("selectstart", function (e) {
-    e.preventDefault();
-});
-/* Small vibration on button tap */
+/* =====================================================
+   EXTRA TOUCH SUPPORT
+===================================================== */
 
-function smallVibration() {
-    if (navigator.vibrate) {
-        navigator.vibrate(25);
+document.addEventListener(
+    "touchstart",
+    function () {
+
+        /*
+           Keeps touch interaction
+           smooth on mobile browsers.
+        */
+
+    },
+    {
+        passive: true
     }
-}
+);
 
-document.querySelectorAll("button, .next-button").forEach(function (button) {
-    button.addEventListener("click", function () {
-        smallVibration();
-    });
-});
+
+/* =====================================================
+   BUTTON VIBRATION
+===================================================== */
+
+document
+    .querySelectorAll(
+        "button"
+    )
+    .forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    /*
+                       Don't vibrate twice
+                       for the NO button.
+                    */
+
+                    if (
+                        button.id !==
+                        "noButton"
+                    ) {
+
+                        smallVibration();
+
+                    }
+
+                }
+            );
+
+        }
+    );
