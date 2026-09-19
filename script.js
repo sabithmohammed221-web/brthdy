@@ -1,90 +1,94 @@
-// ===============================
-// VOXO / BIRTHDAY WEBSITE
-// CLEAN SCRIPT - NO DUPLICATES
-// ===============================
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
+    // =========================
+    // ELEMENTS
+    // =========================
 
     const pages = document.querySelectorAll(".page");
-    const nextButtons = document.querySelectorAll(".next-button");
+
+    const nextButtons = document.querySelectorAll(
+        ".next-button"
+    );
+
     const yesButton = document.getElementById("yesButton");
     const noButton = document.getElementById("noButton");
+
     const yesResult = document.getElementById("yesResult");
+
     const finalButton = document.getElementById("finalButton");
 
     const music = document.getElementById("music");
     const musicButton = document.getElementById("musicButton");
 
+
+    // =========================
+    // CURRENT PAGE
+    // =========================
+
     let currentPage = 0;
-    let musicStarted = false;
 
 
-    // ===============================
+    // =========================
     // SHOW PAGE
-    // ===============================
+    // =========================
 
-    function showPage(index) {
+    function showPage(number) {
 
-        if (index < 0 || index >= pages.length) {
+        if (number < 0 || number >= pages.length) {
             return;
         }
 
-        pages.forEach((page, i) => {
-            page.classList.toggle("active", i === index);
+        pages.forEach(function (page, index) {
+
+            if (index === number) {
+                page.classList.add("active");
+            } else {
+                page.classList.remove("active");
+            }
+
         });
 
-        currentPage = index;
+        currentPage = number;
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        // Put slide content at top
+        const activeContent =
+            pages[number].querySelector(".content");
+
+        if (activeContent) {
+            activeContent.scrollTop = 0;
+        }
     }
 
 
-    // ===============================
-    // START MUSIC
-    // ===============================
+    // =========================
+    // MUSIC
+    // =========================
 
     function startMusic() {
 
-        if (!music || musicStarted) {
+        if (!music) {
             return;
         }
 
-        music.play()
-            .then(() => {
-                musicStarted = true;
-
-                if (musicButton) {
-                    musicButton.textContent = "🔊";
-                }
-            })
-            .catch(() => {
-                // Browser blocked autoplay.
-                // It will start after user taps music button.
-            });
+        music.play().catch(function () {});
     }
 
 
-    // ===============================
-    // MUSIC BUTTON
-    // ===============================
+    if (musicButton) {
 
-    if (musicButton && music) {
+        musicButton.addEventListener("click", function () {
 
-        musicButton.addEventListener("click", (event) => {
-
-            event.stopPropagation();
+            if (!music) {
+                return;
+            }
 
             if (music.paused) {
 
                 music.play()
-                    .then(() => {
-                        musicStarted = true;
+                    .then(function () {
                         musicButton.textContent = "🔊";
                     })
-                    .catch(() => {});
+                    .catch(function () {});
 
             } else {
 
@@ -93,21 +97,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         });
+
     }
 
 
-    // ===============================
-    // NEXT BUTTONS
-    // ===============================
+    // =========================
+    // NORMAL NEXT BUTTONS
+    // =========================
 
-    nextButtons.forEach((button) => {
+    nextButtons.forEach(function (button) {
 
-        // Do NOT attach normal next action to final button.
-        if (button === finalButton) {
+        // Final button has its own function
+        if (button.id === "finalButton") {
             return;
         }
 
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click", function (event) {
 
             event.preventDefault();
             event.stopPropagation();
@@ -123,22 +128,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ===============================
+    // =========================
     // YES BUTTON
-    // ===============================
+    // =========================
 
     if (yesButton) {
 
-        yesButton.addEventListener("click", (event) => {
+        yesButton.addEventListener("click", function (event) {
 
             event.preventDefault();
             event.stopPropagation();
 
             startMusic();
 
-            const question = document.querySelector(".question");
-            const questionSubtitle = document.querySelector(".question-subtitle");
-            const answerArea = document.querySelector(".answer-area");
+            const question =
+                document.querySelector(".question");
+
+            const questionSubtitle =
+                document.querySelector(".question-subtitle");
+
+            const answerArea =
+                document.querySelector(".answer-area");
+
 
             if (question) {
                 question.style.display = "none";
@@ -161,9 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ===============================
-    // NO BUTTON - MOVING BUTTON
-    // ===============================
+    // =========================
+    // NO BUTTON
+    // =========================
 
     function moveNoButton() {
 
@@ -171,123 +182,141 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const area = document.querySelector(".answer-area");
+        const area =
+            document.querySelector(".answer-area");
 
         if (!area) {
             return;
         }
 
-        const areaRect = area.getBoundingClientRect();
-        const buttonRect = noButton.getBoundingClientRect();
 
-        const maxX = Math.max(
-            0,
-            areaRect.width - buttonRect.width
-        );
+        const areaWidth = area.clientWidth;
+        const areaHeight = area.clientHeight;
 
-        const maxY = Math.max(
-            0,
-            areaRect.height - buttonRect.height
-        );
+        const buttonWidth = noButton.offsetWidth;
+        const buttonHeight = noButton.offsetHeight;
 
-        const randomX = Math.random() * maxX;
-        const randomY = Math.random() * maxY;
 
-        noButton.style.position = "absolute";
-        noButton.style.left = `${randomX}px`;
-        noButton.style.top = `${randomY}px`;
+        // Keep button completely inside area
+        const maxLeft =
+            Math.max(0, areaWidth - buttonWidth);
 
+        const maxTop =
+            Math.max(0, areaHeight - buttonHeight);
+
+
+        const randomLeft =
+            Math.floor(Math.random() * maxLeft);
+
+        const randomTop =
+            Math.floor(Math.random() * maxTop);
+
+
+        noButton.style.left =
+            randomLeft + "px";
+
+        noButton.style.top =
+            randomTop + "px";
     }
 
 
-    // Move when mouse comes near
     if (noButton) {
 
-        noButton.addEventListener("mouseenter", (event) => {
-            event.preventDefault();
-            moveNoButton();
-        });
+        // Desktop
+        noButton.addEventListener(
+            "mouseenter",
+            function () {
+                moveNoButton();
+            }
+        );
 
 
-        // Mobile touch
-        noButton.addEventListener("touchstart", (event) => {
+        // Mobile
+        noButton.addEventListener(
+            "touchstart",
+            function (event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            moveNoButton();
+                moveNoButton();
 
-        }, {
-            passive: false
-        });
+            },
+            {
+                passive: false
+            }
+        );
 
 
-        // Prevent actual NO click
-        noButton.addEventListener("click", (event) => {
+        // If somehow clicked
+        noButton.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
-            event.stopPropagation();
+                event.preventDefault();
+                event.stopPropagation();
 
-            moveNoButton();
-
-        });
+                moveNoButton();
+            }
+        );
 
     }
 
 
-    // ===============================
+    // =========================
     // FINAL BUTTON
-    // ===============================
+    // =========================
 
     if (finalButton) {
 
-        finalButton.addEventListener("click", (event) => {
+        finalButton.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
-            event.stopPropagation();
+                event.preventDefault();
+                event.stopPropagation();
 
-            startMusic();
+                startMusic();
 
-            // Slide 9 = index 8
-            showPage(8);
+                // Slide 9
+                showPage(8);
 
-        });
+            }
+        );
 
     }
 
 
-    // ===============================
-    // START FROM SLIDE 1
-    // ===============================
+    // =========================
+    // START
+    // =========================
 
     showPage(0);
 
 
-    // ===============================
-    // START MUSIC AFTER FIRST TAP
-    // ===============================
+    // =========================
+    // START MUSIC AFTER USER TAP
+    // =========================
 
-    document.addEventListener("click", () => {
-        startMusic();
-    }, {
-        once: true
-    });
-
-
-    // ===============================
-    // DISABLE RIGHT CLICK
-    // ===============================
-
-    document.addEventListener("contextmenu", (event) => {
-        event.preventDefault();
-    });
+    document.addEventListener(
+        "click",
+        function () {
+            startMusic();
+        },
+        {
+            once: true
+        }
+    );
 
 
-    // ===============================
-    // DISABLE TEXT SELECTION
-    // ===============================
+    // =========================
+    // RIGHT CLICK OFF
+    // =========================
 
-    document.addEventListener("selectstart", (event) => {
-        event.preventDefault();
-    });
+    document.addEventListener(
+        "contextmenu",
+        function (event) {
+            event.preventDefault();
+        }
+    );
 
 });
