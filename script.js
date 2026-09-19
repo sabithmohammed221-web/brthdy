@@ -1,710 +1,293 @@
-/* =====================================================
-   PAGE SYSTEM
-===================================================== */
+// ===============================
+// VOXO / BIRTHDAY WEBSITE
+// CLEAN SCRIPT - NO DUPLICATES
+// ===============================
 
-const pages = document.querySelectorAll(".page");
+document.addEventListener("DOMContentLoaded", () => {
 
-const nextButtons =
-    document.querySelectorAll(".next-button");
+    const pages = document.querySelectorAll(".page");
+    const nextButtons = document.querySelectorAll(".next-button");
+    const yesButton = document.getElementById("yesButton");
+    const noButton = document.getElementById("noButton");
+    const yesResult = document.getElementById("yesResult");
+    const finalButton = document.getElementById("finalButton");
 
-let currentPage = 0;
+    const music = document.getElementById("music");
+    const musicButton = document.getElementById("musicButton");
 
-
-/* =====================================================
-   MUSIC
-===================================================== */
-
-const music =
-    document.getElementById("music");
-
-const musicButton =
-    document.getElementById("musicButton");
+    let currentPage = 0;
+    let musicStarted = false;
 
 
-function startMusic() {
+    // ===============================
+    // SHOW PAGE
+    // ===============================
 
-    if (!music) {
-        return;
+    function showPage(index) {
+
+        if (index < 0 || index >= pages.length) {
+            return;
+        }
+
+        pages.forEach((page, i) => {
+            page.classList.toggle("active", i === index);
+        });
+
+        currentPage = index;
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
-    const playPromise =
-        music.play();
 
-    if (playPromise !== undefined) {
+    // ===============================
+    // START MUSIC
+    // ===============================
 
-        playPromise
-            .then(function () {
+    function startMusic() {
+
+        if (!music || musicStarted) {
+            return;
+        }
+
+        music.play()
+            .then(() => {
+                musicStarted = true;
 
                 if (musicButton) {
-                    musicButton.textContent = "♫";
+                    musicButton.textContent = "🔊";
                 }
-
             })
-            .catch(function () {
-
-                /*
-                   Some browsers block
-                   automatic audio.
-                   It will start after
-                   a user interaction.
-                */
-
+            .catch(() => {
+                // Browser blocked autoplay.
+                // It will start after user taps music button.
             });
-
     }
 
-}
 
+    // ===============================
+    // MUSIC BUTTON
+    // ===============================
 
-/* =====================================================
-   MUSIC BUTTON
-===================================================== */
+    if (musicButton && music) {
 
-if (musicButton && music) {
+        musicButton.addEventListener("click", (event) => {
 
-    musicButton.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
             event.stopPropagation();
-
-            smallVibration();
 
             if (music.paused) {
 
                 music.play()
-                    .then(function () {
-
-                        musicButton.textContent =
-                            "♫";
-
+                    .then(() => {
+                        musicStarted = true;
+                        musicButton.textContent = "🔊";
                     })
-                    .catch(function () {
-
-                        console.log(
-                            "Music could not play."
-                        );
-
-                    });
+                    .catch(() => {});
 
             } else {
 
                 music.pause();
-
-                musicButton.textContent =
-                    "♪";
-
+                musicButton.textContent = "🎵";
             }
 
-        }
-    );
-
-}
-
-
-/* =====================================================
-   SHOW PAGE
-===================================================== */
-
-function showPage(number) {
-
-    if (
-        number < 0 ||
-        number >= pages.length
-    ) {
-        return;
+        });
     }
 
-    pages.forEach(
-        function (page, index) {
 
-            if (index === number) {
+    // ===============================
+    // NEXT BUTTONS
+    // ===============================
 
-                page.classList.add(
-                    "active"
-                );
+    nextButtons.forEach((button) => {
 
-            } else {
-
-                page.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-    currentPage = number;
-
-}
-
-
-/* =====================================================
-   SMALL VIBRATION
-===================================================== */
-
-function smallVibration() {
-
-    if (
-        navigator.vibrate
-    ) {
-
-        navigator.vibrate(22);
-
-    }
-
-}
-
-
-/* =====================================================
-   NORMAL NEXT BUTTONS
-===================================================== */
-
-nextButtons.forEach(
-    function (button) {
-
-        /*
-           These buttons have their
-           own special functions.
-        */
-
-        if (
-            button.id === "finalButton" ||
-            button.id === "yesButton" ||
-            button.id === "noButton"
-        ) {
-
+        // Do NOT attach normal next action to final button.
+        if (button === finalButton) {
             return;
-
         }
 
-
-        button.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                smallVibration();
-
-                startMusic();
-
-
-                /*
-                   Go to next slide.
-                */
-
-                if (
-                    currentPage <
-                    pages.length - 1
-                ) {
-
-                    showPage(
-                        currentPage + 1
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   YES / NO ELEMENTS
-===================================================== */
-
-const noButton =
-    document.getElementById(
-        "noButton"
-    );
-
-const yesButton =
-    document.getElementById(
-        "yesButton"
-    );
-
-const answerArea =
-    document.getElementById(
-        "answerArea"
-    );
-
-const yesResult =
-    document.getElementById(
-        "yesResult"
-    );
-
-const questionLabel =
-    document.getElementById(
-        "questionLabel"
-    );
-
-const questionText =
-    document.getElementById(
-        "questionText"
-    );
-
-const questionSubtitle =
-    document.getElementById(
-        "questionSubtitle"
-    );
-
-const questionBox =
-    document.getElementById(
-        "questionBox"
-    );
-
-
-/* =====================================================
-   MOVE NO BUTTON
-===================================================== */
-
-function moveNoButton() {
-
-    if (
-        !noButton ||
-        !answerArea
-    ) {
-
-        return;
-
-    }
-
-
-    const areaWidth =
-        answerArea.clientWidth;
-
-    const areaHeight =
-        answerArea.clientHeight;
-
-
-    const buttonWidth =
-        noButton.offsetWidth;
-
-    const buttonHeight =
-        noButton.offsetHeight;
-
-
-    /*
-       Calculate the maximum
-       safe position.
-    */
-
-    const maxX =
-        Math.max(
-            5,
-            areaWidth -
-            buttonWidth -
-            5
-        );
-
-
-    const maxY =
-        Math.max(
-            5,
-            areaHeight -
-            buttonHeight -
-            5
-        );
-
-
-    /*
-       Random position.
-    */
-
-    const randomX =
-        5 +
-        Math.random() *
-        Math.max(
-            1,
-            maxX - 5
-        );
-
-
-    const randomY =
-        5 +
-        Math.random() *
-        Math.max(
-            1,
-            maxY - 5
-        );
-
-
-    noButton.style.left =
-        randomX + "px";
-
-    noButton.style.top =
-        randomY + "px";
-
-
-    /*
-       Remove the original
-       centered transform.
-    */
-
-    noButton.style.transform =
-        "none";
-
-}
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
-if (noButton) {
-
-    noButton.addEventListener(
-        "mouseenter",
-        function () {
-
-            moveNoButton();
-
-        }
-    );
-
-
-    /*
-       Mouse pointer.
-    */
-
-    noButton.addEventListener(
-        "pointerenter",
-        function (event) {
-
-            if (
-                event.pointerType ===
-                "mouse"
-            ) {
-
-                moveNoButton();
-
-            }
-
-        }
-    );
-
-
-    /*
-       Touchscreen.
-    */
-
-    noButton.addEventListener(
-        "touchstart",
-        function (event) {
+        button.addEventListener("click", (event) => {
 
             event.preventDefault();
-
             event.stopPropagation();
-
-            smallVibration();
-
-            moveNoButton();
-
-        },
-        {
-            passive: false
-        }
-    );
-
-
-    /*
-       Pointer devices.
-    */
-
-    noButton.addEventListener(
-        "pointerdown",
-        function (event) {
-
-            if (
-                event.pointerType ===
-                "touch"
-            ) {
-
-                event.preventDefault();
-
-            }
-
-            smallVibration();
-
-            moveNoButton();
-
-        }
-    );
-
-
-    /*
-       If somehow clicked,
-       move it immediately.
-    */
-
-    noButton.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-            moveNoButton();
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   YES BUTTON
-===================================================== */
-
-if (yesButton) {
-
-    yesButton.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-            smallVibration();
 
             startMusic();
 
-
-            /*
-               Hide the question.
-            */
-
-            if (questionLabel) {
-
-                questionLabel.style.display =
-                    "none";
-
+            if (currentPage < pages.length - 1) {
+                showPage(currentPage + 1);
             }
 
+        });
 
-            if (questionText) {
+    });
 
-                questionText.style.display =
-                    "none";
 
+    // ===============================
+    // YES BUTTON
+    // ===============================
+
+    if (yesButton) {
+
+        yesButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            startMusic();
+
+            const question = document.querySelector(".question");
+            const questionSubtitle = document.querySelector(".question-subtitle");
+            const answerArea = document.querySelector(".answer-area");
+
+            if (question) {
+                question.style.display = "none";
             }
-
 
             if (questionSubtitle) {
-
-                questionSubtitle.style.display =
-                    "none";
-
+                questionSubtitle.style.display = "none";
             }
-
 
             if (answerArea) {
-
-                answerArea.style.display =
-                    "none";
-
+                answerArea.style.display = "none";
             }
-
-
-            if (questionBox) {
-
-                questionBox.style.display =
-                    "none";
-
-            }
-
-
-            /*
-               Show the YES result.
-            */
 
             if (yesResult) {
-
-                yesResult.classList.add(
-                    "show"
-                );
-
+                yesResult.style.display = "block";
             }
 
+        });
+
+    }
+
+
+    // ===============================
+    // NO BUTTON - MOVING BUTTON
+    // ===============================
+
+    function moveNoButton() {
+
+        if (!noButton) {
+            return;
         }
-    );
 
-}
+        const area = document.querySelector(".answer-area");
+
+        if (!area) {
+            return;
+        }
+
+        const areaRect = area.getBoundingClientRect();
+        const buttonRect = noButton.getBoundingClientRect();
+
+        const maxX = Math.max(
+            0,
+            areaRect.width - buttonRect.width
+        );
+
+        const maxY = Math.max(
+            0,
+            areaRect.height - buttonRect.height
+        );
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noButton.style.position = "absolute";
+        noButton.style.left = `${randomX}px`;
+        noButton.style.top = `${randomY}px`;
+
+    }
 
 
-/* =====================================================
-   FINAL BUTTON
-===================================================== */
+    // Move when mouse comes near
+    if (noButton) {
 
-const finalButton =
-    document.getElementById(
-        "finalButton"
-    );
+        noButton.addEventListener("mouseenter", (event) => {
+            event.preventDefault();
+            moveNoButton();
+        });
 
 
-if (finalButton) {
-
-    finalButton.addEventListener(
-        "click",
-        function (event) {
+        // Mobile touch
+        noButton.addEventListener("touchstart", (event) => {
 
             event.preventDefault();
 
+            moveNoButton();
+
+        }, {
+            passive: false
+        });
+
+
+        // Prevent actual NO click
+        noButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
             event.stopPropagation();
 
-            smallVibration();
+            moveNoButton();
+
+        });
+
+    }
+
+
+    // ===============================
+    // FINAL BUTTON
+    // ===============================
+
+    if (finalButton) {
+
+        finalButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
+            event.stopPropagation();
 
             startMusic();
 
-
-            /*
-               YES result is on slide 8.
-
-               After clicking
-               "Two last slides",
-               go to slide 9.
-
-               Array index:
-               0 = Slide 1
-               1 = Slide 2
-               2 = Slide 3
-               3 = Slide 4
-               4 = Slide 5
-               5 = Slide 6
-               6 = Slide 7
-               7 = Slide 8
-               8 = Slide 9
-               9 = Slide 10
-            */
-
+            // Slide 9 = index 8
             showPage(8);
 
-        }
-    );
+        });
 
-}
+    }
 
 
-/* =====================================================
-   PREVENT LONG PRESS MENU
-===================================================== */
+    // ===============================
+    // START FROM SLIDE 1
+    // ===============================
 
-document.addEventListener(
-    "contextmenu",
-    function (event) {
+    showPage(0);
 
+
+    // ===============================
+    // START MUSIC AFTER FIRST TAP
+    // ===============================
+
+    document.addEventListener("click", () => {
+        startMusic();
+    }, {
+        once: true
+    });
+
+
+    // ===============================
+    // DISABLE RIGHT CLICK
+    // ===============================
+
+    document.addEventListener("contextmenu", (event) => {
         event.preventDefault();
-
-    }
-);
+    });
 
 
-/* =====================================================
-   PREVENT TEXT SELECTION
-===================================================== */
+    // ===============================
+    // DISABLE TEXT SELECTION
+    // ===============================
 
-document.addEventListener(
-    "selectstart",
-    function (event) {
-
+    document.addEventListener("selectstart", (event) => {
         event.preventDefault();
+    });
 
-    }
-);
-
-
-/* =====================================================
-   PREVENT DOUBLE-TAP ZOOM
-===================================================== */
-
-let lastTouchEnd = 0;
-
-
-document.addEventListener(
-    "touchend",
-    function (event) {
-
-        const now =
-            Date.now();
-
-
-        if (
-            now - lastTouchEnd <= 300
-        ) {
-
-            event.preventDefault();
-
-        }
-
-
-        lastTouchEnd = now;
-
-    },
-    {
-        passive: false
-    }
-);
-
-
-/* =====================================================
-   EXTRA TOUCH SUPPORT
-===================================================== */
-
-document.addEventListener(
-    "touchstart",
-    function () {
-
-        /*
-           Keeps touch interaction
-           smooth on mobile browsers.
-        */
-
-    },
-    {
-        passive: true
-    }
-);
-
-
-/* =====================================================
-   BUTTON VIBRATION
-===================================================== */
-
-document
-    .querySelectorAll(
-        "button"
-    )
-    .forEach(
-        function (button) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    /*
-                       Don't vibrate twice
-                       for the NO button.
-                    */
-
-                    if (
-                        button.id !==
-                        "noButton"
-                    ) {
-
-                        smallVibration();
-
-                    }
-
-                }
-            );
-
-        }
-    );
+});
